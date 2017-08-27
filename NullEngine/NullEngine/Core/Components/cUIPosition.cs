@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using nullEngine.Entity;
 
-namespace nullEngine.Entity___Component
+namespace nullEngine.Component
 {
     class cUIPosition : iComponent
     {

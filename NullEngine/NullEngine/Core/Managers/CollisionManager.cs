@@ -25,7 +25,7 @@ namespace nullEngine.Managers
         public static CollisionManager man;
 
         //bounding box dict
-        public Dictionary<Point, List<Entity___Component.cCollider>> boundingBoxes;
+        public Dictionary<Point, List<Component.cCollider>> boundingBoxes;
 
         //bounding box size
         int boundSize;
@@ -46,11 +46,11 @@ namespace nullEngine.Managers
             boundSize = minBoundSize;
 
             // initialize the bounding box dict
-            boundingBoxes = new Dictionary<Point, List<Entity___Component.cCollider>>(new pointHashCode());
+            boundingBoxes = new Dictionary<Point, List<Component.cCollider>>(new pointHashCode());
         }
 
         //add the collider to the list in the dict
-        public static void addCollider(Entity___Component.cCollider c)
+        public static void addCollider(Component.cCollider c)
         {
             //generate the key
             Point key = getKey(c.rect);
@@ -62,7 +62,7 @@ namespace nullEngine.Managers
             else
             {
                 //~~ otherwise add a new list to that key and add the collider 
-                man.boundingBoxes.Add(key, new List<Entity___Component.cCollider>());
+                man.boundingBoxes.Add(key, new List<Component.cCollider>());
                 man.boundingBoxes[key].Add(c);
             }
             //set the colliders key to the generated key
@@ -70,7 +70,7 @@ namespace nullEngine.Managers
         }
 
         //remove the collider from the bounding box dict
-        public static void removeCollider(Entity___Component.cCollider c)
+        public static void removeCollider(Component.cCollider c)
         {
             man.boundingBoxes[c.key].Remove(c);
             if(man.boundingBoxes[c.key].Count <= 0)
@@ -80,7 +80,7 @@ namespace nullEngine.Managers
         }
 
         //remove and replace the collider to change which bounding box it is in
-        public static void moveCollider(Entity___Component.cCollider c)
+        public static void moveCollider(Component.cCollider c)
         {
             removeCollider(c);
             addCollider(c);
@@ -93,7 +93,7 @@ namespace nullEngine.Managers
         }
 
 
-        public static Point WillItCollide(Entity___Component.cCollider c, int xMove, int yMove)
+        public static Point WillItCollide(Component.cCollider c, int xMove, int yMove)
         {
             //assign the movement to a point to use to return
             Point p = new Point(xMove, yMove);
@@ -136,10 +136,10 @@ namespace nullEngine.Managers
             return p;
         }
 
-        public List<Entity___Component.cCollider> CheckCollision(Entity___Component.cCollider c)
+        public List<Component.cCollider> CheckCollision(Component.cCollider c)
         {
             //create a list to hold all of the objects that might be colliding
-            List<Entity___Component.cCollider> temp = new List<Entity___Component.cCollider>();
+            List<Component.cCollider> temp = new List<Component.cCollider>();
 
             //get the key for the collidable that is being checked 
             Point cKey = getKey(c.rect);
@@ -156,7 +156,7 @@ namespace nullEngine.Managers
                     if (boundingBoxes.ContainsKey(key))
                     {
                         //-- for all of said objects ~~
-                        List<Entity___Component.cCollider> box = boundingBoxes[key];
+                        List<Component.cCollider> box = boundingBoxes[key];
                         for (int k = 0; k < box.Count; k++)
                         {
                             //~~ if the object collides with the calling object and it is not the calling object ~~
@@ -174,10 +174,10 @@ namespace nullEngine.Managers
             return temp;
         }
 
-        public List<Entity___Component.cCollider> CheckCollision(Entity___Component.cCollider c, int buffer)
+        public List<Component.cCollider> CheckCollision(Component.cCollider c, int buffer)
         {
             //create a list to hold all of the objects that might be colliding
-            List<Entity___Component.cCollider> temp = new List<Entity___Component.cCollider>();
+            List<Component.cCollider> temp = new List<Component.cCollider>();
 
             //get the key for the collidable that is being checked 
             Point cKey = getKey(c.rect);
@@ -195,7 +195,7 @@ namespace nullEngine.Managers
                     if (boundingBoxes.ContainsKey(key))
                     {
                         //-- for all of said objects ~~
-                        List<Entity___Component.cCollider> box = boundingBoxes[key];
+                        List<Component.cCollider> box = boundingBoxes[key];
                         for (int k = 0; k < box.Count; k++)
                         {
                             //~~ if the object collides with the calling object and it is not the calling object ~~
@@ -242,7 +242,7 @@ namespace nullEngine.Managers
         }
 
         //this checks if a rect will cause a collision and returns true if it does
-        public Boolean CheckFutureCollision(Rectangle rect, Entity___Component.cCollider c)
+        public Boolean CheckFutureCollision(Rectangle rect, Component.cCollider c)
         {
             //get the boundingBoxes Key from the rect
             Point cKey = getKey(rect);
@@ -264,7 +264,7 @@ namespace nullEngine.Managers
                         //this checks if the corrisponding bounding box has any objects in it
                         if (boundingBoxes.ContainsKey(key))
                         {
-                            List<Entity___Component.cCollider> box = boundingBoxes[key];
+                            List<Component.cCollider> box = boundingBoxes[key];
                             //for every object in the bounding box --
                             for (int k = 0; k < box.Count; k++)
                             {

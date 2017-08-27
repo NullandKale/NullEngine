@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace nullEngine.Entity___Component
+namespace nullEngine.Component
 {
     public interface iComponent
     {
-        void Run(renderable r);
+        void Run(nullEngine.Entity.renderable r);
     }
 }

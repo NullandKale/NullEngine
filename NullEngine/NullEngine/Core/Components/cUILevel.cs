@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using nullEngine.Entity;
 
-namespace nullEngine.Entity___Component
+namespace nullEngine.Component
 {
     class cUILevel : iComponent
     {

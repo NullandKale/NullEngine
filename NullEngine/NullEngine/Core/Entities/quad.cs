@@ -8,8 +8,9 @@ using OpenTK;
 using OpenTK.Graphics.OpenGL;
 using OpenTK.Input;
 using System.Drawing;
+using nullEngine.Component;
 
-namespace nullEngine.Entity___Component
+namespace nullEngine.Entity
 {
     public class quad : renderable
     {

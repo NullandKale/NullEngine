@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using System.Drawing;
-using nullEngine.Entity___Component;
+using nullEngine.Entity;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
@@ -116,7 +116,7 @@ namespace nullEngine.Managers
             {
                 return new Point(0, 0);
             }
-            return new Point(worldPos.X / 16 * Entity___Component.transform.masterScale, worldPos.Y / 16 * Entity___Component.transform.masterScale);
+            return new Point(worldPos.X / 16 * transform.masterScale, worldPos.Y / 16 * transform.masterScale);
         }
 
         public static Point worldToTile(int X, int Y)

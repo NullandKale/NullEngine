@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using nullEngine.Entity;
 
 using OpenTK.Input;
 
-namespace nullEngine.Entity___Component
+namespace nullEngine.Component
 {
     class KeyboardControl : iComponent
     {

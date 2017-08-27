@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 using OpenTK.Input;
 using System.Drawing;
+using nullEngine.Entity;
 
-namespace nullEngine.Entity___Component
+namespace nullEngine.Component
 {
     class cKeyboardMoveandCollide : KeyboardControl
     {

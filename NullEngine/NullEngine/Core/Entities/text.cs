@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 using OpenTK;
 using OpenTK.Graphics.OpenGL;
+using nullEngine.Component;
 
-namespace nullEngine.Entity___Component
+namespace nullEngine.Entity
 {
     //this is an entity whose texture is text
     public class text : renderable

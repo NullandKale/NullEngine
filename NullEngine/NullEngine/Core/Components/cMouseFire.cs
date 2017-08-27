@@ -6,8 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 using System.Drawing;
+using nullEngine.Entity;
 
-namespace nullEngine.Entity___Component
+namespace nullEngine.Component
 {
     public class cMouseFire : iComponent
     {

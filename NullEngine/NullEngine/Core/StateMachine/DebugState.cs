@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using nullEngine.Entity___Component;
+using nullEngine.Component;
 using System.Drawing;
 
 namespace nullEngine.StateMachines

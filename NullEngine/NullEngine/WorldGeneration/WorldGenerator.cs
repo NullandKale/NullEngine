@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using nullEngine.Managers;
-using nullEngine.Entity___Component;
+using nullEngine.Component;
 
 namespace nullEngine.WorldGen
 {
