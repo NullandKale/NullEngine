@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using OpenTK;
+﻿using System.Collections.Generic;
 using OpenTK.Graphics.OpenGL;
-using OpenTK.Input;
-using System.Drawing;
 using nullEngine.Component;
 
 namespace nullEngine.Entity

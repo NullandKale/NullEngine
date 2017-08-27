@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using nullEngine.Entity;
-
 using System.Drawing;
 
 namespace nullEngine.Component
