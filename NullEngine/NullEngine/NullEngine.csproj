@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4DE0D50B-5AF5-466F-B531-B4142573350B}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NullEngine</RootNamespace>
+    <AssemblyName>NullEngine</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="OpenTK, Version=2.0.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenTK.2.0.0\lib\net20\OpenTK.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core\Components\cBackgroundManger.cs" />
+    <Compile Include="Core\Components\cCollider.cs" />
+    <Compile Include="Core\Components\cColliderMovementStop.cs" />
+    <Compile Include="Core\Components\cDamagePlayer.cs" />
+    <Compile Include="Core\Components\cDeactivateAfter.cs" />
+    <Compile Include="Core\Components\cDeactivateOnCollide.cs" />
+    <Compile Include="Core\Components\cDEBUG_POS.cs" />
+    <Compile Include="Core\Components\cEnemyAI.cs" />
+    <Compile Include="Core\Components\cFireable.cs" />
+    <Compile Include="Core\Components\cFollowCamera.cs" />
+    <Compile Include="Core\Components\cHealth.cs" />
+    <Compile Include="Core\Components\cKeyboardMoveandCollide.cs" />
+    <Compile Include="Core\Components\cMouseFire.cs" />
+    <Compile Include="Core\Components\cRangedWeapon.cs" />
+    <Compile Include="Core\Components\cUIEnemiesLeft.cs" />
+    <Compile Include="Core\Components\cUIHealth.cs" />
+    <Compile Include="Core\Components\cUILevel.cs" />
+    <Compile Include="Core\Components\cUIPosition.cs" />
+    <Compile Include="Core\Components\iComponent.cs" />
+    <Compile Include="Core\Components\KeyboardControl.cs" />
+    <Compile Include="Core\Components\MouseControl.cs" />
+    <Compile Include="Core\Entities\Button.cs" />
+    <Compile Include="Core\Entities\iRenderable.cs" />
+    <Compile Include="Core\Entities\quad.cs" />
+    <Compile Include="Core\Entities\renderable.cs" />
+    <Compile Include="Core\Entities\text.cs" />
+    <Compile Include="Core\Managers\ButtonManager.cs" />
+    <Compile Include="Core\Managers\CollisionManager.cs" />
+    <Compile Include="Core\Managers\EnemyManager.cs" />
+    <Compile Include="Core\Managers\InputManager.cs" />
+    <Compile Include="Core\Managers\SingletonException.cs" />
+    <Compile Include="Core\Managers\TextureManager.cs" />
+    <Compile Include="Core\Managers\WorldManager.cs" />
+    <Compile Include="Core\StateMachine\DebugState.cs" />
+    <Compile Include="Core\StateMachine\GameState.cs" />
+    <Compile Include="Core\StateMachine\GameStateManager.cs" />
+    <Compile Include="Core\StateMachine\iState.cs" />
+    <Compile Include="Core\StateMachine\MenuState.cs" />
+    <Compile Include="Core\StateMachine\PauseState.cs" />
+    <Compile Include="Core\StateMachine\StateManager.cs" />
+    <Compile Include="Game.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Texture2D.cs" />
+    <Compile Include="TextureAtlas.cs" />
+    <Compile Include="WorldGeneration\Chunk.cs" />
+    <Compile Include="WorldGeneration\OpenSimplexNoise.cs" />
+    <Compile Include="WorldGeneration\Ray.cs" />
+    <Compile Include="WorldGeneration\Tile.cs" />
+    <Compile Include="WorldGeneration\WorldData.cs" />
+    <Compile Include="WorldGeneration\WorldGenerator.cs" />
+    <Compile Include="WorldGeneration\WorldTexID.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="OpenTK.dll.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bullet.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\buttonBackground.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\font.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\grad.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\grass.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\overworld.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\roguelikeCharBeard_transparent.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\roguelikeDungeon_transparent.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
