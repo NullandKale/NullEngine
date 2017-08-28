@@ -72,8 +72,8 @@ namespace nullEngine
             buttonMan = new ButtonManager();
 
             //initialize global textures
-            font = new TextureAtlas("Content/font.png", 16, 6, 8, 12, 0);
-            buttonBackground = Managers.TextureManager.LoadTexture("Content/buttonBackground.png", false);
+            font = new TextureAtlas("Game/Content/font.png", 16, 6, 8, 12, 0);
+            buttonBackground = Managers.TextureManager.LoadTexture("Game/Content/buttonBackground.png", false);
 
             //initialize game statemachine;
             gStateManager = new StateMachines.GameStateManager();

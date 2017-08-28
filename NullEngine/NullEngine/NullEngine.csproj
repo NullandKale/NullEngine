@@ -88,11 +88,11 @@
     <Compile Include="Core\StateMachine\MenuState.cs" />
     <Compile Include="Core\StateMachine\PauseState.cs" />
     <Compile Include="Core\StateMachine\StateManager.cs" />
-    <Compile Include="Game.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Game\Game.cs" />
+    <Compile Include="Game\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Texture2D.cs" />
-    <Compile Include="TextureAtlas.cs" />
+    <Compile Include="Core\Texture2D.cs" />
+    <Compile Include="Core\TextureAtlas.cs" />
     <Compile Include="WorldGeneration\Chunk.cs" />
     <Compile Include="WorldGeneration\OpenSimplexNoise.cs" />
     <Compile Include="WorldGeneration\Ray.cs" />
@@ -107,28 +107,28 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bullet.png">
+    <Content Include="Game\Content\bullet.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\buttonBackground.png">
+    <Content Include="Game\Content\buttonBackground.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\font.png">
+    <Content Include="Game\Content\font.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\grad.png">
+    <Content Include="Game\Content\grad.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\grass.png">
+    <Content Include="Game\Content\grass.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\overworld.png">
+    <Content Include="Game\Content\overworld.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\roguelikeCharBeard_transparent.png">
+    <Content Include="Game\Content\roguelikeCharBeard_transparent.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\roguelikeDungeon_transparent.png">
+    <Content Include="Game\Content\roguelikeDungeon_transparent.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

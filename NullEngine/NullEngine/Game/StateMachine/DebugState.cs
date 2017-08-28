@@ -20,7 +20,7 @@ namespace nullEngine.StateMachines
         {
             updaters = new List<Action>();
 
-            overworldTileAtlas = new TextureAtlas("Content/overworld.png", 21, 9, 16, 16, 0);
+            overworldTileAtlas = new TextureAtlas("Game/Content/overworld.png", 21, 9, 16, 16, 0);
 
             //testWorld = new quad(Managers.WorldManager.worldTex);
             //updaters.Add(testWorld.update);

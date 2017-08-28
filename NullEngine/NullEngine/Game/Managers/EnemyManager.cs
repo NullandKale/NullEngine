@@ -36,7 +36,7 @@ namespace nullEngine.Managers
             enemies = new quad[enemyCount];
             for (int j = 0; j < enemies.Length; j++)
             {
-                enemies[j] = new quad("Content/roguelikeCharBeard_transparent.png");
+                enemies[j] = new quad("Game/Content/roguelikeCharBeard_transparent.png");
                 cCollider badguyCollider = new cCollider(enemies[j]);
                 enemies[j].AddComponent(new cDamagePlayer(playerCharacter, playerHealth, 1, badguyCollider));
                 enemies[j].AddComponent(badguyCollider);

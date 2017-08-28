@@ -23,7 +23,7 @@ namespace nullEngine.WorldGen
             this.scale = scale;
             this.tileSize = tileSize;
 
-            wData = new WorldData(seed, worldSize, chunkSize, "Content/overworld.png");
+            wData = new WorldData(seed, worldSize, chunkSize, "Game/Content/overworld.png");
             Game.rng = new Random(seed);
             GenerateWorldData();
         }

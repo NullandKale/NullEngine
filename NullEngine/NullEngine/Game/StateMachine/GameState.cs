@@ -58,7 +58,7 @@ namespace nullEngine.StateMachines
             updaters.Add(background.update);
 
             //initialize player character entity
-            playerCharacter = new quad("Content/roguelikeCharBeard_transparent.png");
+            playerCharacter = new quad("Game/Content/roguelikeCharBeard_transparent.png");
             playerCharacter.AddComponent(new cFollowCamera(playerCharacter));
             cCollider playerCollider = new cCollider(playerCharacter);
             cMouseFire playerBulletMan = new cMouseFire(playerCharacter);

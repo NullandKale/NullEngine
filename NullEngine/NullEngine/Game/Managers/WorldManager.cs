@@ -19,7 +19,7 @@ namespace nullEngine.Managers
             }
         }
 
-        public string worldFileLoc = "Content/World/";
+        public string worldFileLoc = "Game/Content/World/";
 
         public Point currentChunkPos;
         public Chunk currentChunk;

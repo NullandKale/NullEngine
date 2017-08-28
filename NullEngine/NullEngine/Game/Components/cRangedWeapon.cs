@@ -17,7 +17,7 @@ namespace nullEngine.Component
             bullets = new quad[bulletCount];
             for (int i = 0; i < bullets.Length; i++)
             {
-                bullets[i] = new quad("Content/bullet.png");
+                bullets[i] = new quad("Game/Content/bullet.png");
                 bullets[i].active = false;
                 bullets[i].AddComponent(new cDeactivateOnCollide(bullets[i], playerCharacter));
                 bullets[i].AddComponent(new cDeactivateAfter(10000));
