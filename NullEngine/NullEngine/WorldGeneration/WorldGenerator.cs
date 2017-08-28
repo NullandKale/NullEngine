@@ -9,10 +9,10 @@ namespace nullEngine.WorldGen
     public class WorldGenerator
     {
         public WorldData wData;
+
         private int tileSize;
         private double scale;
         private OpenSimplexNoise noise;
-
         private CollisionManager cMan;
         private List<cCollider> colliders;
 
