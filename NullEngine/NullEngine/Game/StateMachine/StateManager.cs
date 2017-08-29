@@ -6,6 +6,6 @@ namespace nullEngine.StateMachines
     abstract class StateManager
     {
         public iState CurrentState;
-        public abstract void update(object sender, FrameEventArgs e);
+        public abstract void update();
     }
 }

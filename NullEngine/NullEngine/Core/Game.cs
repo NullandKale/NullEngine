@@ -22,7 +22,7 @@ namespace nullEngine
         public static Random rng;
         public static bool DEBUG_doNotLoad_SETTOFALSE = true;
 
-        public StateMachines.GameStateManager gStateManager;
+        public Action currentState;
 
         private Matrix4 projMatrix;
 
@@ -75,9 +75,6 @@ namespace nullEngine
             font = new TextureAtlas("Game/Content/font.png", 16, 6, 8, 12, 0);
             buttonBackground = Managers.TextureManager.LoadTexture("Game/Content/buttonBackground.png", false);
 
-            //initialize game statemachine;
-            gStateManager = new StateMachines.GameStateManager();
-
             //inititialize frame timer;
             sw = new Stopwatch();
             frameTime = 0;
@@ -110,6 +107,9 @@ namespace nullEngine
             windowRect.X = worldx;
             windowRect.Y = worldy;
             worldRect = new Rectangle(0, 0, worldMaxX, worldMaxY);
+
+            //invoke update function
+            currentState.Invoke();
         }
 
         void window_RenderFrame(object sender, FrameEventArgs e)

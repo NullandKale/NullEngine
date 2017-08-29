@@ -44,12 +44,9 @@ namespace nullEngine.StateMachines
                 dState = new DebugState();
                 Console.WriteLine("Debug is enabled, loading debugState");
             }
-
-            //add update function to update call list
-            Game.window.UpdateFrame += update;
         }
 
-        public override void update(object sender, FrameEventArgs e)
+        public override void update()
         {
             //on startup set current state to menuState and update current state
             if(CurrentState == null)
