@@ -48,6 +48,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\Extensions\DoubleExtensions.cs" />
+    <Compile Include="Core\Extensions\FloatExtensions.cs" />
+    <Compile Include="Core\Extensions\IntExtensions.cs" />
+    <Compile Include="Core\Extensions\LongExtensions.cs" />
     <Compile Include="Game\Components\cBackgroundManger.cs" />
     <Compile Include="Core\Components\cCollider.cs" />
     <Compile Include="Game\Components\cColliderMovementStop.cs" />
@@ -94,13 +98,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Core\Textures\Texture2D.cs" />
     <Compile Include="Core\Textures\TextureAtlas.cs" />
-    <Compile Include="WorldGeneration\Chunk.cs" />
-    <Compile Include="WorldGeneration\OpenSimplexNoise.cs" />
-    <Compile Include="WorldGeneration\Ray.cs" />
-    <Compile Include="WorldGeneration\Tile.cs" />
-    <Compile Include="WorldGeneration\WorldData.cs" />
-    <Compile Include="WorldGeneration\WorldGenerator.cs" />
-    <Compile Include="WorldGeneration\WorldTexID.cs" />
+    <Compile Include="Core\WorldGeneration\Chunk.cs" />
+    <Compile Include="Core\WorldGeneration\OpenSimplexNoise.cs" />
+    <Compile Include="Core\WorldGeneration\Ray.cs" />
+    <Compile Include="Core\WorldGeneration\Tile.cs" />
+    <Compile Include="Core\WorldGeneration\WorldData.cs" />
+    <Compile Include="Core\WorldGeneration\WorldGenerator.cs" />
+    <Compile Include="Core\WorldGeneration\WorldTexID.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -1,4 +1,6 @@
-﻿namespace NullEngine.Core.Extensions
+﻿using System;
+
+namespace NullEngine.Core.Extensions
 {
     /// <summary>
     /// Extensions for the Int datatype.
@@ -50,6 +52,17 @@
             num = minNum + (num - lowerBound) * (maxNum - minNum) / (upperBound - lowerBound);
 
             return num;
-        }        
+        }
+
+        /// <summary>
+        /// Lerps the value to the value of the second number.
+        /// </summary>
+        /// <param name="value">The value to lerp to.</param>
+        /// <param name="amount">The weight of the second value.</param>
+        /// <returns>The lerped number.</returns>
+        public static int Lerp(this int self, int value, float amount)
+        {
+            return (int) Math.Floor(self + (value - self) * amount);
+        }
     }
 }
