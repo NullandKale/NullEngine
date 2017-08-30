@@ -1,7 +1,8 @@
 ﻿using System;
-using OpenTK;
+using NullEngine;
+using NullEngine.StateMachine;
 
-namespace nullEngine.StateMachines
+namespace NullGame.StateMachine
 {
     class GameStateManager : StateManager
     {

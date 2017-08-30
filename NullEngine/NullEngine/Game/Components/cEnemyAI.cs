@@ -1,8 +1,11 @@
 ﻿using System;
-using nullEngine.Entity;
+using NullEngine;
+using NullEngine.Entity;
 using System.Drawing;
+using NullEngine.Component;
+using NullEngine.Managers;
 
-namespace nullEngine.Component
+namespace NullGame.Component
 {
     class cEnemyAI : iComponent
     {
@@ -49,7 +52,7 @@ namespace nullEngine.Component
                     }
                 }
 
-                Point p = Managers.CollisionManager.WillItCollide(collider, move.X, move.Y);
+                Point p = CollisionManager.WillItCollide(collider, move.X, move.Y);
                 r.setRelativePos(p);
             }
         }

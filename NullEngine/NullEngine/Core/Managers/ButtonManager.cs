@@ -2,8 +2,9 @@
 using OpenTK;
 using OpenTK.Input;
 using System.Drawing;
+using NullGame.StateMachine;
 
-namespace nullEngine.Managers
+namespace NullEngine.Managers
 {
     class ButtonManager
     {
@@ -30,7 +31,7 @@ namespace nullEngine.Managers
                 for(int i = 0; i < Buttons.Count; i++)
                 {
                     //check if the button is active and the current gamestate contains the button
-                    if(Buttons[i].background.active && StateMachines.GameStateManager.man.CurrentState == Buttons[i].containingState)
+                    if(Buttons[i].background.active && GameStateManager.man.CurrentState == Buttons[i].containingState)
                     {
                         //check if the button wants a right click
                         if (Buttons[i].button == MouseButton.Right && doRight)

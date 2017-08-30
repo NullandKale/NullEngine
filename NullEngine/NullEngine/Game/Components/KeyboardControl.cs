@@ -1,7 +1,10 @@
-﻿using nullEngine.Entity;
+﻿
+using NullEngine;
+using NullEngine.Component;
+using NullEngine.Entity;
 using OpenTK.Input;
 
-namespace nullEngine.Component
+namespace NullGame.Component
 {
     class KeyboardControl : iComponent
     {

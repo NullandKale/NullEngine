@@ -1,7 +1,7 @@
-﻿using nullEngine.Entity;
+﻿using NullEngine.Entity;
 using System.Drawing;
 
-namespace nullEngine.Component
+namespace NullEngine.Component
 {
     public class cCollider : iComponent
     {

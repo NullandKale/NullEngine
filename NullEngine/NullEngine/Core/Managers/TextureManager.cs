@@ -2,8 +2,9 @@
 using OpenTK.Graphics.OpenGL;
 using System.Drawing;
 using System.Drawing.Imaging;
+using NullEngine.WorldGen;
 
-namespace nullEngine.Managers
+namespace NullEngine.Managers
 {
     //this class handles loading and setting textures in GPU memory
     public class TextureManager

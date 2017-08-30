@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using OpenTK;
 using System.Drawing;
-using nullEngine.Component;
+using NullEngine.Component;
 
-namespace nullEngine.Entity
+namespace NullEngine.Entity
 {
     public abstract class renderable
     {

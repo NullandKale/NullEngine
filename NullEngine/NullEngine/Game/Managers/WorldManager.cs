@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using nullEngine.Entity;
+using NullEngine.Entity;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using NullEngine;
+using NullEngine.Managers;
+using NullEngine.WorldGen;
 
-namespace nullEngine.Managers
+namespace NullGame.Managers
 {
     public class WorldManager
     {
@@ -47,7 +50,7 @@ namespace nullEngine.Managers
         private int tileSize;
         private double scale;
 
-        public WorldGen.WorldGenerator wGen;
+        public WorldGenerator wGen;
         private Dictionary<Point, Chunk> worldCache;
 
         public WorldManager(int seed, int worldSize, int chunkSize, double scale, int tileSize, CollisionManager collisionManager, Point curretChunk)
@@ -71,7 +74,7 @@ namespace nullEngine.Managers
             this.tileSize = tileSize;
             this.scale = scale;
 
-            wGen = new WorldGen.WorldGenerator(seed, worldSize, chunkSize, scale, tileSize, collisionManager);
+            wGen = new WorldGenerator(seed, worldSize, chunkSize, scale, tileSize, collisionManager);
             worldFileLoc += seed.ToString() + "/";
             worldCache = new Dictionary<Point, Chunk>();
             LoadChunk();

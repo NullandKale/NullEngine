@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
-using nullEngine.Entity;
+using NullEngine;
+using NullEngine.Entity;
+using NullEngine.Component;
 
-namespace nullEngine.Component
+namespace NullGame.Component
 {
     public class cMouseFire : iComponent
     {

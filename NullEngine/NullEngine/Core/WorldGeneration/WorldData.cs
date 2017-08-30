@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 
-namespace nullEngine
+namespace NullEngine.WorldGen
 {
     [Serializable]
     public class WorldData

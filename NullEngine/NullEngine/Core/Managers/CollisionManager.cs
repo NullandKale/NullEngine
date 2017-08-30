@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 
-namespace nullEngine.Managers
+namespace NullEngine.Managers
 {
     /*========================================================================================================
      *  

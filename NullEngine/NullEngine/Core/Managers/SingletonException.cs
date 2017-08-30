@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace nullEngine.Managers
+namespace NullEngine.Managers
 {
     //this is an exception for whenever a singleton is instantiated twice
     [Serializable]

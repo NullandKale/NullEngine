@@ -1,8 +1,11 @@
 ﻿using OpenTK.Input;
+using NullEngine;
 using System.Drawing;
-using nullEngine.Entity;
+using NullEngine.Entity;
+using NullEngine.Component;
+using NullEngine.Managers;
 
-namespace nullEngine.Component
+namespace NullGame.Component
 {
     class cKeyboardMoveandCollide : KeyboardControl
     {
@@ -61,7 +64,7 @@ namespace nullEngine.Component
                         yMove = (int)(yMove * sprintMultiplyer);
                     }
 
-                    Point p = Managers.CollisionManager.WillItCollide(collider, xMove, yMove);
+                    Point p = CollisionManager.WillItCollide(collider, xMove, yMove);
 
                     p.X += (int)r.pos.xPos;
                     p.Y += (int)r.pos.yPos;

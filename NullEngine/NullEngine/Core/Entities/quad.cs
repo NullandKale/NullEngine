@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using OpenTK.Graphics.OpenGL;
-using nullEngine.Component;
+using NullEngine.Component;
 
-namespace nullEngine.Entity
+namespace NullEngine.Entity
 {
     public class quad : renderable
     {

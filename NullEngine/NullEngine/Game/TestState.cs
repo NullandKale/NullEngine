@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using nullEngine.Entity;
-using nullEngine.Component;
+using NullEngine.Entity;
 
-namespace NullEngine.Game
+namespace NullGame
 {
     class TestState
     {

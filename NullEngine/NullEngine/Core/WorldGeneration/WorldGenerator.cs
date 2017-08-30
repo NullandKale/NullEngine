@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using nullEngine.Managers;
-using nullEngine.Component;
+using NullEngine.Managers;
+using NullEngine.Component;
 
-namespace nullEngine.WorldGen
+namespace NullEngine.WorldGen
 {
     public class WorldGenerator
     {

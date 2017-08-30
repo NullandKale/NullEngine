@@ -1,7 +1,7 @@
-﻿namespace nullEngine.Component
+﻿namespace NullEngine.Component
 {
     public interface iComponent
     {
-        void Run(nullEngine.Entity.renderable r);
+        void Run(NullEngine.Entity.renderable r);
     }
 }

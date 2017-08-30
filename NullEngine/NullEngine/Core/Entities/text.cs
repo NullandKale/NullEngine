@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using OpenTK.Graphics.OpenGL;
-using nullEngine.Component;
+using NullEngine.Component;
+using NullEngine.WorldGen;
 
-namespace nullEngine.Entity
+namespace NullEngine.Entity
 {
     //this is an entity whose texture is text
     public class text : renderable

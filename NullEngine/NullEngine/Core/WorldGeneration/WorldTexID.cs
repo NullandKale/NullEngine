@@ -1,4 +1,4 @@
-﻿namespace nullEngine
+﻿namespace NullEngine.WorldGen
 {
     public enum WorldTexID
     {

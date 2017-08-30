@@ -1,9 +1,9 @@
 ﻿using System;
 using OpenTK.Input;
 using System.Drawing;
-using nullEngine.Entity;
+using NullEngine.Entity;
 
-namespace nullEngine
+namespace NullEngine
 {
     class Button
     {
@@ -11,11 +11,11 @@ namespace nullEngine
         public quad background;
         public MouseButton button;
         public Action onClick;
-        public StateMachines.iState containingState;
+        public StateMachine.iState containingState;
 
         private String echo;
 
-        public Button(string text, Texture2D background, Action onClick, MouseButton buttonToCheck, StateMachines.iState state)
+        public Button(string text, Texture2D background, Action onClick, MouseButton buttonToCheck, StateMachine.iState state)
         {
             this.background = new quad(background);
             this.background.doDistCulling = false;
@@ -28,7 +28,7 @@ namespace nullEngine
             containingState = state;
         }
 
-        public Button(string text, Texture2D background, String toEcho, MouseButton buttonToCheck, StateMachines.iState state)
+        public Button(string text, Texture2D background, String toEcho, MouseButton buttonToCheck, StateMachine.iState state)
         {
             this.background = new quad(background);
             this.background.doDistCulling = false;
@@ -49,7 +49,7 @@ namespace nullEngine
             containingState = state;
         }
 
-        public Button(int size, string text, Texture2D background, String toEcho, MouseButton buttonToCheck, StateMachines.iState state)
+        public Button(int size, string text, Texture2D background, String toEcho, MouseButton buttonToCheck, StateMachine.iState state)
         {
             this.background = new quad(background);
             this.background.doDistCulling = false;

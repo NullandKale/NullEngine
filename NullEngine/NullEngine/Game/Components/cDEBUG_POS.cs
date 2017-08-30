@@ -1,7 +1,9 @@
 ﻿using System;
-using nullEngine.Entity;
+using NullEngine;
+using NullEngine.Entity;
+using NullEngine.Component;
 
-namespace nullEngine.Component
+namespace NullGame.Component
 {
     class cDEBUG_POS : iComponent
     {

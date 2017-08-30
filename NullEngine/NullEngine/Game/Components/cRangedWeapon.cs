@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using nullEngine.Entity;
+using NullEngine.Entity;
+using NullEngine.Component;
 
-namespace nullEngine.Component
+namespace NullGame.Component
 {
     class cRangedWeapon : iComponent
     {

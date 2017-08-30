@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace nullEngine
+namespace NullEngine.WorldGen
 {
     //this is a struct for each tile
     [Serializable]

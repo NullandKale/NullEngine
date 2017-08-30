@@ -84,10 +84,10 @@
     <Compile Include="Game\StateMachine\DebugState.cs" />
     <Compile Include="Game\StateMachine\GameState.cs" />
     <Compile Include="Game\StateMachine\GameStateManager.cs" />
-    <Compile Include="Game\StateMachine\iState.cs" />
+    <Compile Include="Core\StateMachine\iState.cs" />
     <Compile Include="Game\StateMachine\MenuState.cs" />
     <Compile Include="Game\StateMachine\PauseState.cs" />
-    <Compile Include="Game\StateMachine\StateManager.cs" />
+    <Compile Include="Core\StateMachine\StateManager.cs" />
     <Compile Include="Core\Game.cs" />
     <Compile Include="Game\Program.cs" />
     <Compile Include="Game\TestState.cs" />

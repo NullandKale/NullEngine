@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using nullEngine.Entity;
-using nullEngine.Component;
+using NullEngine.Entity;
+using NullEngine.Component;
 using System.Drawing;
+using NullEngine.Managers;
+using NullGame.Component;
+using NullEngine;
 
-namespace nullEngine.Managers
+namespace NullGame.Managers
 {
     class EnemyManager
     {

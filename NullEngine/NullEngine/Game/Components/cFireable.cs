@@ -1,8 +1,9 @@
 ﻿using System;
-using nullEngine.Entity;
+using NullEngine.Entity;
 using System.Drawing;
+using NullEngine.Component;
 
-namespace nullEngine.Component
+namespace NullGame.Component
 {
     public class cFireable : iComponent
     {

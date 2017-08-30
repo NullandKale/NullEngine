@@ -2,7 +2,7 @@
 using OpenTK.Input;
 using System.Drawing;
 
-namespace nullEngine.Managers
+namespace NullEngine.Managers
 {
     class InputManager
     {

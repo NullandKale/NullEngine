@@ -1,7 +1,8 @@
 ﻿using System.Drawing;
-using nullEngine.Entity;
+using NullEngine.Entity;
+using NullEngine.Component;
 
-namespace nullEngine.Component
+namespace NullGame.Component
 {
     class cUIPosition : iComponent
     {
@@ -26,7 +27,7 @@ namespace nullEngine.Component
 
         private Point GetPlayerPos()
         {
-            return new Point((int)StateMachines.GameStateManager.man.gState.playerCharacter.pos.xPos / 64, (int)StateMachines.GameStateManager.man.gState.playerCharacter.pos.yPos / 64);
+            return new Point((int)StateMachine.GameStateManager.man.gState.playerCharacter.pos.xPos / 64, (int)StateMachine.GameStateManager.man.gState.playerCharacter.pos.yPos / 64);
         }
     }
 }

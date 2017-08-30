@@ -1,6 +1,7 @@
-﻿using System;
+﻿using NullEngine;
+using System;
 
-namespace nullEngine
+namespace NullGame
 {
     class Program
     {
@@ -16,7 +17,7 @@ namespace nullEngine
             Game game = new Game(window);
 
             //create game logic statemachine
-            StateMachines.GameStateManager gMan = new StateMachines.GameStateManager();
+            StateMachine.GameStateManager gMan = new StateMachine.GameStateManager();
 
             //give the game the current update function
             game.currentState = gMan.update;

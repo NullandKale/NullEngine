@@ -1,7 +1,8 @@
-﻿using nullEngine.Entity;
+﻿using NullEngine.Component;
+using NullEngine.Entity;
 using System.Drawing;
 
-namespace nullEngine.Component
+namespace NullGame.Component
 {
     class cBackgroundManger : iComponent
     {

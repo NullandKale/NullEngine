@@ -1,4 +1,4 @@
-﻿namespace nullEngine
+﻿namespace NullEngine
 {
     //this is a class to store all of the necessary texture data
     public class Texture2D

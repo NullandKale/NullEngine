@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using nullEngine.Entity;
-using nullEngine.Component;
+using NullEngine;
+using NullEngine.Entity;
+using NullEngine.Component;
+using NullEngine.Managers;
+using NullEngine.StateMachine;
 using System.Drawing;
+using NullGame.Component;
 
-namespace nullEngine.StateMachines
+namespace NullGame.StateMachine
 {
     class GameState : iState
     {
@@ -16,7 +20,7 @@ namespace nullEngine.StateMachines
         List<Action> updaters;
 
         //game manager singletons
-        Managers.CollisionManager col;
+        CollisionManager col;
         Managers.EnemyManager eMan;
         Managers.WorldManager wMan;
 
@@ -45,7 +49,7 @@ namespace nullEngine.StateMachines
 
             //initialize list of entity updaters and the collision manager singleton
             updaters = new List<Action>();
-            col = new Managers.CollisionManager(100);
+            col = new CollisionManager(100);
             int seed = 5; //Game.rng.Next();
             wMan = new Managers.WorldManager(seed, 10, 100, 10d, 64, col, new Point(0,0));
             Game.worldMaxX = wMan.worldMaxX;

@@ -1,7 +1,8 @@
-﻿using System;
+﻿using NullGame.Managers;
+using System;
 using System.Drawing;
 
-namespace nullEngine
+namespace NullEngine.WorldGen
 {
     [Serializable]
     public class Chunk
@@ -112,7 +113,7 @@ namespace nullEngine
 
         public void AfterDiskLoad(TextureAtlas backgroundtAtlas)
         {
-            Managers.WorldManager.man.wGen.wData = wData;
+            WorldManager.man.wGen.wData = wData;
 
             if(hasDungeon)
             {

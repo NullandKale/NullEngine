@@ -5,9 +5,9 @@ using System.Diagnostics;
 using OpenTK;
 using OpenTK.Graphics.OpenGL;
 using System.Drawing;
-using nullEngine.Managers;
+using NullEngine.Managers;
 
-namespace nullEngine
+namespace NullEngine
 {
     class Game
     {

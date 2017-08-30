@@ -1,8 +1,10 @@
-﻿using System;
+﻿using NullEngine;
+using NullEngine.StateMachine;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 
-namespace nullEngine.StateMachines
+namespace NullGame.StateMachine
 {
     class MenuState : iState
     {

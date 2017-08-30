@@ -1,6 +1,8 @@
-﻿using nullEngine.Entity;
+﻿using NullEngine;
+using NullEngine.Component;
+using NullEngine.Entity;
 
-namespace nullEngine.Component
+namespace NullGame.Component
 {
     class cDeactivateAfter : iComponent
     {

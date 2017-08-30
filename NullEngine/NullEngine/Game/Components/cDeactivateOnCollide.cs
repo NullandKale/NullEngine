@@ -1,7 +1,10 @@
 ﻿using System.Collections.Generic;
-using nullEngine.Entity;
+using NullEngine.Entity;
+using NullEngine.Component;
+using NullEngine;
+using NullEngine.Managers;
 
-namespace nullEngine.Component
+namespace NullGame.Component
 {
     class cDeactivateOnCollide : cCollider
     {
@@ -17,7 +20,7 @@ namespace nullEngine.Component
         {
             base.Run(r);
 
-            colliding = Managers.CollisionManager.man.CheckCollision(this);
+            colliding = CollisionManager.man.CheckCollision(this);
 
             for (int i = 0; i < colliding.Count; i++)
             {

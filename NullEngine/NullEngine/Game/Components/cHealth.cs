@@ -1,7 +1,8 @@
 ﻿using System;
-using nullEngine.Entity;
+using NullEngine.Entity;
+using NullEngine.Component;
 
-namespace nullEngine.Component
+namespace NullGame.Component
 {
     class cHealth : iComponent
     {
@@ -9,12 +10,12 @@ namespace nullEngine.Component
         int maxHealth;
 
         renderable PC;
-        StateMachines.GameState gState;
+        StateMachine.GameState gState;
 
         int delayAmount;
         int delayTimer;
 
-        public cHealth(int totalHealth, renderable player, StateMachines.GameState gState, int delay)
+        public cHealth(int totalHealth, renderable player, StateMachine.GameState gState, int delay)
         {
             maxHealth = totalHealth;
             currentHealth = totalHealth;

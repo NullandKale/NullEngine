@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
-using nullEngine.Entity;
+using NullEngine.Entity;
+using NullEngine.Component;
+using NullEngine.Managers;
 
-namespace nullEngine.Component
+namespace NullGame.Component
 {
     class cDamagePlayer : iComponent
     {
@@ -23,7 +25,7 @@ namespace nullEngine.Component
         {
             if(r.active)
             {
-                collidingWith = Managers.CollisionManager.man.CheckCollision(collider, 5);
+                collidingWith = CollisionManager.man.CheckCollision(collider, 5);
 
                 for (int i = 0; i < collidingWith.Count; i++)
                 {
