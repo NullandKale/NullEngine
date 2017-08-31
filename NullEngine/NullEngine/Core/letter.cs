@@ -1,67 +1,7 @@
-﻿using System;
-
-namespace NullEngine.WorldGen
+﻿namespace NullEngine
 {
-    //this is a struct for each tile
-    [Serializable]
-    public struct Tile
-    {
-        public int TexID;
-        [NonSerialized]
-        public TextureAtlas tAtlas;
-    }
-
-    [Serializable]
-    public struct worldTile
-    {
-        public Tile graphics;
-        public string type;
-        public bool isCollideable;
-        public bool isContainer;
-        public bool isRoad;
-    }
-
-
-    //
-    //   0 1 2
-    //   3 4 5
-    //   6 7 8
-    //
-    public struct nineSplice
-    {
-        public bool Active_0;
-        public worldTile tile_0;
-
-        public bool Active_1;
-        public worldTile tile_1;
-
-        public bool Active_2;
-        public worldTile tile_2;
-
-        public bool Active_3;
-        public worldTile tile_3;
-
-        public bool Active_4;
-        public worldTile tile_4;
-
-        public bool Active_5;
-        public worldTile tile_5;
-
-        public bool Active_6;
-        public worldTile tile_6;
-
-        public bool Active_7;
-        public worldTile tile_7;
-
-        public bool Active_8;
-        public worldTile tile_8;
-
-        public worldTile CenterTile;
-
-    }
-
-    //this is an enum for all of the letters supported by /Content/font.png
-    public enum letter
+    // this is an enum for all of the letters supported by /Content/font.png
+    public enum Letter
     {
         space = 0,
         exclaim = 1,
@@ -85,7 +25,7 @@ namespace NullEngine.WorldGen
         three = 19,
         four = 20,
         five = 21,
-        six = 22, 
+        six = 22,
         seven = 23,
         eight = 24,
         nine = 25,
@@ -105,7 +45,7 @@ namespace NullEngine.WorldGen
         G = 39,
         H = 40,
         I = 41,
-        J = 42, 
+        J = 42,
         K = 43,
         L = 44,
         M = 45,

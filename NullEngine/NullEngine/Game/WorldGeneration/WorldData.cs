@@ -1,8 +1,9 @@
-﻿using System;
+﻿using NullEngine;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 
-namespace NullEngine.WorldGen
+namespace NullGame.WorldGen
 {
     [Serializable]
     public class WorldData

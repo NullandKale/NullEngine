@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\letter.cs" />
     <Compile Include="Core\Extensions\DoubleExtensions.cs" />
     <Compile Include="Core\Extensions\FloatExtensions.cs" />
     <Compile Include="Core\Extensions\IntExtensions.cs" />
@@ -87,8 +88,9 @@
     <Compile Include="Game\Managers\WorldManager.cs" />
     <Compile Include="Game\StateMachine\DebugState.cs" />
     <Compile Include="Game\StateMachine\GameState.cs" />
-    <Compile Include="Game\StateMachine\GameStateManager.cs" />
+    <Compile Include="Core\StateMachine\GameStateManager.cs" />
     <Compile Include="Core\StateMachine\iState.cs" />
+    <Compile Include="Game\StateMachine\GameStateManager.cs" />
     <Compile Include="Game\StateMachine\MenuState.cs" />
     <Compile Include="Game\StateMachine\PauseState.cs" />
     <Compile Include="Core\StateMachine\StateManager.cs" />
@@ -98,13 +100,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Core\Textures\Texture2D.cs" />
     <Compile Include="Core\Textures\TextureAtlas.cs" />
-    <Compile Include="Core\WorldGeneration\Chunk.cs" />
-    <Compile Include="Core\WorldGeneration\OpenSimplexNoise.cs" />
-    <Compile Include="Core\WorldGeneration\Ray.cs" />
-    <Compile Include="Core\WorldGeneration\Tile.cs" />
-    <Compile Include="Core\WorldGeneration\WorldData.cs" />
-    <Compile Include="Core\WorldGeneration\WorldGenerator.cs" />
-    <Compile Include="Core\WorldGeneration\WorldTexID.cs" />
+    <Compile Include="Game\WorldGeneration\Chunk.cs" />
+    <Compile Include="Game\WorldGeneration\OpenSimplexNoise.cs" />
+    <Compile Include="Game\WorldGeneration\Ray.cs" />
+    <Compile Include="Game\WorldGeneration\Tile.cs" />
+    <Compile Include="Game\WorldGeneration\WorldData.cs" />
+    <Compile Include="Game\WorldGeneration\WorldGenerator.cs" />
+    <Compile Include="Game\WorldGeneration\WorldTexID.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Drawing;
 using NullEngine.Managers;
 using NullEngine.Component;
+using NullEngine;
+using NullEngine.Entity;
 
-namespace NullEngine.WorldGen
+namespace NullGame.WorldGen
 {
     public class WorldGenerator
     {

@@ -7,7 +7,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using NullEngine;
 using NullEngine.Managers;
-using NullEngine.WorldGen;
+using NullGame.WorldGen;
 
 namespace NullGame.Managers
 {

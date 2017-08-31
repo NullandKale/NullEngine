@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
 
-namespace NullEngine.WorldGen
+namespace NullGame.WorldGen
 {
     /* OpenSimplex Noise in C#
      * Ported from https://gist.github.com/KdotJPG/b1270127455a94ac5d19

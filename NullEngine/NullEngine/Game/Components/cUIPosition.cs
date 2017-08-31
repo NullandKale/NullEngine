@@ -1,6 +1,7 @@
 ﻿using System.Drawing;
 using NullEngine.Entity;
 using NullEngine.Component;
+using NullGame.StateMachine;
 
 namespace NullGame.Component
 {
@@ -27,7 +28,7 @@ namespace NullGame.Component
 
         private Point GetPlayerPos()
         {
-            return new Point((int)StateMachine.GameStateManager.man.gState.playerCharacter.pos.xPos / 64, (int)StateMachine.GameStateManager.man.gState.playerCharacter.pos.yPos / 64);
+            return new Point((int)GameStateManager.man.gState.playerCharacter.pos.xPos / 64, (int)StateMachine.GameStateManager.man.gState.playerCharacter.pos.yPos / 64);
         }
     }
 }

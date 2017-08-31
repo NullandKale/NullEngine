@@ -1,16 +1,11 @@
 ﻿using System;
 using NullEngine;
-using NullEngine.StateMachine;
 
 namespace NullGame.StateMachine
 {
-    class GameStateManager : StateManager
+    class GameStateManager : NullEngine.StateMachine.GameStateManager
     {
-        //static singleton reference
-        public static GameStateManager man;
-
-        //enable or disable debug state
-        public static bool debugEnabled;
+        public static new GameStateManager man;
 
         //state storage
         public GameState gState;
@@ -18,21 +13,11 @@ namespace NullGame.StateMachine
         public PauseState pState;
         public DebugState dState;
 
-        public GameStateManager()
+        public GameStateManager() : base()
         {
-            //singleton management
-            if(man == null)
+            if (man == null)
             {
                 man = this;
-            }
-            else
-            {
-                Console.WriteLine("Singleton Failure @ GameStateManager");
-            }
-
-            if(System.IO.File.Exists("DEBUG_MODE_ENABLED"))
-            {
-                debugEnabled = true;
             }
 
             //create each state

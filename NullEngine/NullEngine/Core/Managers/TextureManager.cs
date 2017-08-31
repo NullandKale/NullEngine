@@ -2,7 +2,7 @@
 using OpenTK.Graphics.OpenGL;
 using System.Drawing;
 using System.Drawing.Imaging;
-using NullEngine.WorldGen;
+using NullEngine.Entity;
 
 namespace NullEngine.Managers
 {
@@ -58,6 +58,51 @@ namespace NullEngine.Managers
             return new Texture2D(id, bitmap.Width, bitmap.Height);
         }
 
+        
+
+        public static Texture2D TextureFromBitmap(Bitmap final)
+        {
+            int id = GL.GenTexture();
+
+            Console.WriteLine("Locking bitmap and sending to graphics memory");
+            BitmapData bmpData = final.LockBits(new Rectangle(0, 0, final.Width, final.Height),
+                    ImageLockMode.ReadOnly, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+
+            GL.BindTexture(TextureTarget.Texture2D, id);
+
+            GL.TexImage2D(TextureTarget.Texture2D, 0,
+                PixelInternalFormat.Rgba, final.Width, final.Height, 0,
+                OpenTK.Graphics.OpenGL.PixelFormat.Bgra,
+                PixelType.UnsignedByte, bmpData.Scan0);
+
+            final.UnlockBits(bmpData);
+
+            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter,
+                (int)TextureMinFilter.Nearest);
+
+            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter,
+                (int)TextureMagFilter.Nearest);
+
+            return new Texture2D(id, final.Width, final.Height);
+        }
+        
+        //this checks what the current working texture is and if the desired texture is different sets that as the working texture
+        public static void GLSetTexture(int id)
+        {
+            if(currentTexture == -1 || currentTexture != id)
+            {
+                GL.BindTexture(TextureTarget.Texture2D, id);
+                currentTexture = id;
+            }
+        }
+
+        //this function removes a texture from memory
+        //ONLY USE IF SURE THE TEXTURE IS NOT IN USE SOMEWHERE ELSE
+        public static void GLDestoryTexture(int id)
+        {
+            GL.DeleteTexture(id);
+        }
+
         //take a 1 dimentional tilemap and create one texture for the whole thing
         public static Texture2D TextureFrom1DTileMap(Tile[] tiles)
         {
@@ -83,9 +128,9 @@ namespace NullEngine.Managers
                 int tilePosX = tiles[i].TexID % xTileCount;
 
                 //these loops copy the pixels from the tiles texture into the new texture
-                for(int k = 0; k < tileSizeY; k++)
+                for (int k = 0; k < tileSizeY; k++)
                 {
-                    for(int j = 0; j < tileSizeX; j++)
+                    for (int j = 0; j < tileSizeX; j++)
                     {
                         int xCord = (i * tileSizeX) + j;
                         int yCord = k;
@@ -130,11 +175,11 @@ namespace NullEngine.Managers
         //this operates the same as above but in 2 dimmensions not 1
         public static Texture2D TextureFrom2DTileMap(Tile[,] tiles)
         {
-            int tileSizeX = tiles[0,0].tAtlas.tilePixelWidth;
-            int tileSizeY = tiles[0,0].tAtlas.tilePixelHeight;
-            int xTileCount = tiles[0,0].tAtlas.tileWidth;
-            int yTileCount = tiles[0,0].tAtlas.tileHeight;
-            String filePath = tiles[0,0].tAtlas.path;
+            int tileSizeX = tiles[0, 0].tAtlas.tilePixelWidth;
+            int tileSizeY = tiles[0, 0].tAtlas.tilePixelHeight;
+            int xTileCount = tiles[0, 0].tAtlas.tileWidth;
+            int yTileCount = tiles[0, 0].tAtlas.tileHeight;
+            String filePath = tiles[0, 0].tAtlas.path;
 
             Bitmap atlas = new Bitmap(filePath);
 
@@ -145,8 +190,8 @@ namespace NullEngine.Managers
             {
                 for (int y = 0; y < tiles.GetLength(1); y++)
                 {
-                    int tilePosY = tiles[x,y].TexID / xTileCount;
-                    int tilePosX = tiles[x,y].TexID % xTileCount;
+                    int tilePosY = tiles[x, y].TexID / xTileCount;
+                    int tilePosX = tiles[x, y].TexID % xTileCount;
 
                     for (int k = 0; k < tileSizeY; k++)
                     {
@@ -231,41 +276,15 @@ namespace NullEngine.Managers
             return final;
         }
 
-        public static Texture2D TextureFromBitmap(Bitmap final)
-        {
-            int id = GL.GenTexture();
-
-            Console.WriteLine("Locking bitmap and sending to graphics memory");
-            BitmapData bmpData = final.LockBits(new Rectangle(0, 0, final.Width, final.Height),
-                    ImageLockMode.ReadOnly, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
-
-            GL.BindTexture(TextureTarget.Texture2D, id);
-
-            GL.TexImage2D(TextureTarget.Texture2D, 0,
-                PixelInternalFormat.Rgba, final.Width, final.Height, 0,
-                OpenTK.Graphics.OpenGL.PixelFormat.Bgra,
-                PixelType.UnsignedByte, bmpData.Scan0);
-
-            final.UnlockBits(bmpData);
-
-            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter,
-                (int)TextureMinFilter.Nearest);
-
-            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter,
-                (int)TextureMagFilter.Nearest);
-
-            return new Texture2D(id, final.Width, final.Height);
-        }
-
 
         public static Texture2D TextureFrom2DTileMap(worldTile[,] tiles)
         {
             Console.WriteLine("Generating 2D tileMap Texture");
-            int tileSizeX = tiles[0,0].graphics.tAtlas.tilePixelWidth;
-            int tileSizeY = tiles[0,0].graphics.tAtlas.tilePixelHeight;
-            int xTileCount = tiles[0,0].graphics.tAtlas.tileWidth;
-            int yTileCount = tiles[0,0].graphics.tAtlas.tileHeight;
-            String filePath = tiles[0,0].graphics.tAtlas.path;
+            int tileSizeX = tiles[0, 0].graphics.tAtlas.tilePixelWidth;
+            int tileSizeY = tiles[0, 0].graphics.tAtlas.tilePixelHeight;
+            int xTileCount = tiles[0, 0].graphics.tAtlas.tileWidth;
+            int yTileCount = tiles[0, 0].graphics.tAtlas.tileHeight;
+            String filePath = tiles[0, 0].graphics.tAtlas.path;
 
             Console.WriteLine("Loading Tile Atlas");
             Bitmap atlas = new Bitmap(filePath);
@@ -279,8 +298,8 @@ namespace NullEngine.Managers
             {
                 for (int y = 0; y < tiles.GetLength(1); y++)
                 {
-                    int tilePosY = tiles[x,y].graphics.TexID / xTileCount;
-                    int tilePosX = tiles[x,y].graphics.TexID % xTileCount;
+                    int tilePosY = tiles[x, y].graphics.TexID / xTileCount;
+                    int tilePosX = tiles[x, y].graphics.TexID % xTileCount;
 
                     for (int k = 0; k < tileSizeY; k++)
                     {
@@ -321,23 +340,6 @@ namespace NullEngine.Managers
 
             return new Texture2D(id, final.Width, final.Height);
 
-        }
-
-        //this checks what the current working texture is and if the desired texture is different sets that as the working texture
-        public static void GLSetTexture(int id)
-        {
-            if(currentTexture == -1 || currentTexture != id)
-            {
-                GL.BindTexture(TextureTarget.Texture2D, id);
-                currentTexture = id;
-            }
-        }
-
-        //this function removes a texture from memory
-        //ONLY USE IF SURE THE TEXTURE IS NOT IN USE SOMEWHERE ELSE
-        public static void GLDestoryTexture(int id)
-        {
-            GL.DeleteTexture(id);
         }
     }
 }

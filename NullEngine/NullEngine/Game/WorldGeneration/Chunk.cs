@@ -1,8 +1,11 @@
-﻿using NullGame.Managers;
+﻿using NullEngine;
+using NullEngine.Entity;
+using NullEngine.Managers;
+using NullGame.Managers;
 using System;
 using System.Drawing;
 
-namespace NullEngine.WorldGen
+namespace NullGame.WorldGen
 {
     [Serializable]
     public class Chunk
@@ -71,15 +74,15 @@ namespace NullEngine.WorldGen
                 {
                     if (dbackgroundBitmap == null || textureOld)
                     {
-                        dbackgroundBitmap = Managers.TextureManager.BitmapFrom2DTileMap(backgroundTiles);
-                        backgroundTexture = Managers.TextureManager.TextureFromBitmap(dbackgroundBitmap);
+                        dbackgroundBitmap = TextureManager.BitmapFrom2DTileMap(backgroundTiles);
+                        backgroundTexture = TextureManager.TextureFromBitmap(dbackgroundBitmap);
                         dtextureGenerated = true;
                         textureGenerated = false;
                         return backgroundTexture;
                     }
                     else
                     {
-                        backgroundTexture = Managers.TextureManager.TextureFromBitmap(dbackgroundBitmap);
+                        backgroundTexture = TextureManager.TextureFromBitmap(dbackgroundBitmap);
                         dtextureGenerated = true;
                         textureGenerated = false;
                         return backgroundTexture;
@@ -96,14 +99,14 @@ namespace NullEngine.WorldGen
                 {
                     if (backgroundBitmap == null || textureOld)
                     {
-                        backgroundBitmap = Managers.TextureManager.BitmapFrom2DTileMap(backgroundTiles);
-                        backgroundTexture = Managers.TextureManager.TextureFromBitmap(backgroundBitmap);
+                        backgroundBitmap = TextureManager.BitmapFrom2DTileMap(backgroundTiles);
+                        backgroundTexture = TextureManager.TextureFromBitmap(backgroundBitmap);
                         textureGenerated = true;
                         return backgroundTexture;
                     }
                     else
                     {
-                        backgroundTexture = Managers.TextureManager.TextureFromBitmap(backgroundBitmap);
+                        backgroundTexture = TextureManager.TextureFromBitmap(backgroundBitmap);
                         textureGenerated = true;
                         return backgroundTexture;
                     }
