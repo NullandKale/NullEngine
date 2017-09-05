@@ -12,8 +12,9 @@ namespace NullEngine.Entity
         int texID;
 
         //Construct with single texture file
-        public quad(string textureLocation)
+        public quad(string textureLocation, StateMachine.iState parent)
         {
+            parentState = parent;
             pos = new transform();
             components = new List<iComponent>();
             tex = Managers.TextureManager.LoadTexture(textureLocation, false);
@@ -21,8 +22,9 @@ namespace NullEngine.Entity
             width = tex.width;
         }
 
-        public quad(Texture2D texture)
+        public quad(Texture2D texture, StateMachine.iState parent)
         {
+            parentState = parent;
             pos = new transform();
             components = new List<iComponent>();
             tex = texture;
@@ -31,8 +33,9 @@ namespace NullEngine.Entity
         }
 
         //Construct with texture atlas and Texture ID
-        public quad(TextureAtlas tAtlas, int id)
+        public quad(TextureAtlas tAtlas, int id, StateMachine.iState parent)
         {
+            parentState = parent;
             pos = new transform();
             components = new List<iComponent>();
             atlas = tAtlas;

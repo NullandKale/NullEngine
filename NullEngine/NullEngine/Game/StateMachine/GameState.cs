@@ -20,7 +20,6 @@ namespace NullGame.StateMachine
         List<Action> updaters;
 
         //game manager singletons
-        CollisionManager col;
         Managers.EnemyManager eMan;
         Managers.WorldManager wMan;
 
@@ -49,20 +48,19 @@ namespace NullGame.StateMachine
 
             //initialize list of entity updaters and the collision manager singleton
             updaters = new List<Action>();
-            col = new CollisionManager(100);
             int seed = 5; //Game.rng.Next();
-            wMan = new Managers.WorldManager(seed, 10, 100, 10d, 64, col, new Point(0,0));
+            wMan = new Managers.WorldManager(seed, 10, 100, 10d, 64, Game.colMan, new Point(0,0));
             Game.worldMaxX = wMan.worldMaxX;
             Game.worldMaxY = wMan.worldMaxY;
             LastWorldPos = new Point(Game.worldCenterX, Game.worldCenterY);
 
             //initialize background entity
-            background = new quad(Managers.WorldManager.worldTex);
+            background = new quad(Managers.WorldManager.worldTex, this);
             background.AddComponent(new cBackgroundManger());
             updaters.Add(background.update);
 
             //initialize player character entity
-            playerCharacter = new quad("Game/Content/roguelikeCharBeard_transparent.png");
+            playerCharacter = new quad("Game/Content/roguelikeCharBeard_transparent.png", this);
             playerCharacter.AddComponent(new cFollowCamera(playerCharacter));
             cCollider playerCollider = new cCollider(playerCharacter);
             cMouseFire playerBulletMan = new cMouseFire(playerCharacter);
@@ -74,12 +72,12 @@ namespace NullGame.StateMachine
             playerCharacter.pos.xPos = Game.window.Width / 2 + 10;
             playerCharacter.pos.yPos = Game.window.Height / 2 + 10;
             playerCharacter.AddComponent(new cDEBUG_POS());
-            playerCharacter.AddComponent(new cRangedWeapon(playerCharacter, playerBulletMan, 10));
+            playerCharacter.AddComponent(new cRangedWeapon(playerCharacter, playerBulletMan, 10, this));
             playerCharacter.tag = "Player";
             updaters.Add(playerCharacter.update);
 
             //initialize enemy manager
-            eMan = new Managers.EnemyManager(playerCharacter, playerHealth, 1000);
+            eMan = new Managers.EnemyManager(playerCharacter, playerHealth, 1000, this);
             updaters.Add(eMan.update);
 
             //initialize UI entities

@@ -20,7 +20,7 @@ namespace NullGame.Managers
         renderable playerCharacter;
         List<int> activeEnemies;
 
-        public EnemyManager(renderable player, cHealth playerHealth, int enemyCount)
+        public EnemyManager(renderable player, cHealth playerHealth, int enemyCount, NullEngine.StateMachine.iState parentState)
         {
             if(man == null)
             {
@@ -39,7 +39,7 @@ namespace NullGame.Managers
             enemies = new quad[enemyCount];
             for (int j = 0; j < enemies.Length; j++)
             {
-                enemies[j] = new quad("Game/Content/roguelikeCharBeard_transparent.png");
+                enemies[j] = new quad("Game/Content/roguelikeCharBeard_transparent.png", parentState);
                 cCollider badguyCollider = new cCollider(enemies[j]);
                 enemies[j].AddComponent(new cDamagePlayer(playerCharacter, playerHealth, 1, badguyCollider));
                 enemies[j].AddComponent(badguyCollider);

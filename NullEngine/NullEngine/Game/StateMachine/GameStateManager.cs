@@ -39,11 +39,12 @@ namespace NullGame.StateMachine
             {
                 CurrentState = mState;
                 mState.enter();
+                Game.currentState = CurrentState;
             }
             else
             {
                 //update current state
-                CurrentState.update();
+                Game.currentState = CurrentState;
             }
 
             if(debugEnabled)

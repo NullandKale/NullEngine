@@ -29,7 +29,7 @@ namespace NullEngine.Managers
         public CollisionManager(int minBoundSize)
         {
             //singleton management
-            if(man == null)
+            if (man == null)
             {
                 man = this;
             }
@@ -51,7 +51,7 @@ namespace NullEngine.Managers
             //generate the key
             Point key = getKey(c.rect);
             //if there is already a list for that key just put the collider in that list ~~
-            if(man.boundingBoxes.ContainsKey(key))
+            if (man.boundingBoxes.ContainsKey(key))
             {
                 man.boundingBoxes[key].Add(c);
             }
@@ -69,7 +69,7 @@ namespace NullEngine.Managers
         public static void removeCollider(Component.cCollider c)
         {
             man.boundingBoxes[c.key].Remove(c);
-            if(man.boundingBoxes[c.key].Count <= 0)
+            if (man.boundingBoxes[c.key].Count <= 0)
             {
                 man.boundingBoxes.Remove(c.key);
             }
@@ -103,9 +103,9 @@ namespace NullEngine.Managers
             bool collideY = man.CheckFutureCollision(futureRectY, c);
 
             //if the rect that corrisponds to the xmove collides set the xmove to 0
-            if(collideX)
+            if (collideX)
             {
-                if(xMove < 0)
+                if (xMove < 0)
                 {
                     p.X = 1;
                 }
@@ -116,7 +116,7 @@ namespace NullEngine.Managers
             }
 
             //do the same for the y move
-            if(collideY)
+            if (collideY)
             {
                 if (yMove < 0)
                 {
@@ -147,7 +147,7 @@ namespace NullEngine.Managers
                 {
                     //-- generate the key for that bounding box --
                     Point key = new Point(cKey.X + i, cKey.Y + j);
-                    
+
                     //-- if the key has any objects in it -- 
                     if (boundingBoxes.ContainsKey(key))
                     {
@@ -212,22 +212,22 @@ namespace NullEngine.Managers
         public Boolean CheckForLeaveWorld(Rectangle rect)
         {
             //if the given rect is outside the world even a little bit return true
-            if(rect.X + rect.Width > Game.worldRect.Right)
+            if (rect.X + rect.Width > Game.worldRect.Right)
             {
                 return true;
             }
 
-            if(rect.X < Game.worldRect.Left)
+            if (rect.X < Game.worldRect.Left)
             {
                 return true;
             }
 
-            if(rect.Y + rect.Height > Game.worldRect.Bottom)
+            if (rect.Y + rect.Height > Game.worldRect.Bottom)
             {
                 return true;
             }
 
-            if(rect.Y < Game.worldRect.Top)
+            if (rect.Y < Game.worldRect.Top)
             {
                 return true;
             }
@@ -249,30 +249,30 @@ namespace NullEngine.Managers
                 return true;
             }
 
-                //for all of the surrounding bounding boxes check if any of the objects will collide
-                for (int i = -1; i <= 1; i++)
+            //for all of the surrounding bounding boxes check if any of the objects will collide
+            for (int i = -1; i <= 1; i++)
+            {
+                for (int j = -1; j <= 1; j++)
                 {
-                    for (int j = -1; j <= 1; j++)
-                    {
-                        //this generates the key for the surrounding bounding boxes
-                        Point key = new Point(cKey.X + i, cKey.Y + j);
+                    //this generates the key for the surrounding bounding boxes
+                    Point key = new Point(cKey.X + i, cKey.Y + j);
 
-                        //this checks if the corrisponding bounding box has any objects in it
-                        if (boundingBoxes.ContainsKey(key))
+                    //this checks if the corrisponding bounding box has any objects in it
+                    if (boundingBoxes.ContainsKey(key))
+                    {
+                        List<Component.cCollider> box = boundingBoxes[key];
+                        //for every object in the bounding box --
+                        for (int k = 0; k < box.Count; k++)
                         {
-                            List<Component.cCollider> box = boundingBoxes[key];
-                            //for every object in the bounding box --
-                            for (int k = 0; k < box.Count; k++)
+                            //-- check if the bounding box collides and is not the object calling this function return true
+                            if (box[k].collides(rect, c) && c != box[k])
                             {
-                                //-- check if the bounding box collides and is not the object calling this function return true
-                                if (box[k].collides(rect, c) && c != box[k])
-                                {
-                                    return true;
-                                }
+                                return true;
                             }
                         }
                     }
                 }
+            }
             //if all else fails return false
             return false;
         }

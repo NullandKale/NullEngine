@@ -4,18 +4,21 @@ using NullEngine.Entity;
 
 namespace NullGame
 {
-    class TestState
+    class TestState : NullEngine.StateMachine.iState
     {
         public quad pc;
+        public NullEngine.Button b;
 
         private List<Action> updaters;
 
         public TestState()
         {
             updaters = new List<Action>();
-            pc = new quad("Game/Content/roguelikeCharBeard_transparent.png");
-
+            pc = new quad("Game/Content/roguelikeCharBeard_transparent.png", this);
             updaters.Add(pc.update);
+
+            b = new NullEngine.Button("Hello!", NullEngine.Game.buttonBackground, onButton, OpenTK.Input.MouseButton.Left, this);
+            updaters.Add(b.update);
         }
 
         public void update()
@@ -24,6 +27,16 @@ namespace NullGame
             {
                 update.Invoke();
             }
+        }
+
+        public void onButton()
+        {
+
+        }
+
+        public void enter()
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -14,6 +14,7 @@ namespace NullEngine.Entity
         public Texture2D tex;
         public Color col;
         public bool active = true;
+        public StateMachine.iState parentState;
         public bool culled = false;
         public bool doDistCulling = true;
         public string tag;

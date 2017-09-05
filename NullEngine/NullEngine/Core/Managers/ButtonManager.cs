@@ -31,7 +31,7 @@ namespace NullEngine.Managers
                 for(int i = 0; i < Buttons.Count; i++)
                 {
                     //check if the button is active and the current gamestate contains the button
-                    if(Buttons[i].background.active && GameStateManager.man.CurrentState == Buttons[i].containingState)
+                    if(Buttons[i].background.active && Game.currentState == Buttons[i].containingState)
                     {
                         //check if the button wants a right click
                         if (Buttons[i].button == MouseButton.Right && doRight)

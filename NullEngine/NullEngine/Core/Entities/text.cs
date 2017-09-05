@@ -103,8 +103,9 @@ namespace NullEngine.Entity
         public Tile[] tiles;
 
         //construct a text entity based off of a letter array
-        public text(Letter[] letters)
+        public text(Letter[] letters, StateMachine.iState parent)
         {
+            parentState = parent;
             tiles = new Tile[letters.Length];
             pos = new transform();
             components = new List<iComponent>();
@@ -123,8 +124,9 @@ namespace NullEngine.Entity
         }
 
         //construct a text entity based off of a string
-        public text(string s)
+        public text(string s, StateMachine.iState parent)
         {
+            parentState = parent;
             Letter[] letters = stringToLetter(s);
             tiles = new Tile[letters.Length];
             pos = new transform();

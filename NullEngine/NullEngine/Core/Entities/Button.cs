@@ -17,9 +17,9 @@ namespace NullEngine
 
         public Button(string text, Texture2D background, Action onClick, MouseButton buttonToCheck, StateMachine.iState state)
         {
-            this.background = new quad(background);
+            this.background = new quad(background, state);
             this.background.doDistCulling = false;
-            t = new text(text);
+            t = new text(text, state);
             this.background.width = t.tex.width;
             this.background.height = t.tex.height;
             this.onClick = onClick;
@@ -30,9 +30,9 @@ namespace NullEngine
 
         public Button(string text, Texture2D background, String toEcho, MouseButton buttonToCheck, StateMachine.iState state)
         {
-            this.background = new quad(background);
+            this.background = new quad(background, state);
             this.background.doDistCulling = false;
-            t = new text(text);
+            t = new text(text, state);
             this.background.width = t.tex.width;
             this.background.height = t.tex.height;
 
@@ -51,9 +51,9 @@ namespace NullEngine
 
         public Button(int size, string text, Texture2D background, String toEcho, MouseButton buttonToCheck, StateMachine.iState state)
         {
-            this.background = new quad(background);
+            this.background = new quad(background, state);
             this.background.doDistCulling = false;
-            t = new text(text);
+            t = new text(text, state);
             this.background.width = size;
             this.background.height = size;
 

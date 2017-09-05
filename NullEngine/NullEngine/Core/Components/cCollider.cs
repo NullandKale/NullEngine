@@ -11,7 +11,6 @@ namespace NullEngine.Component
 
         public bool component;
 
-
         public cCollider(renderable r)
         {
             Managers.CollisionManager.addCollider(this);

@@ -11,14 +11,14 @@ namespace NullGame.Component
 
         public List<Action> updaters;
 
-        public cRangedWeapon(renderable playerCharacter, cMouseFire playerBulletMan, int bulletCount)
+        public cRangedWeapon(renderable playerCharacter, cMouseFire playerBulletMan, int bulletCount, NullEngine.StateMachine.iState parentState)
         {
             updaters = new List<Action>();
 
             bullets = new quad[bulletCount];
             for (int i = 0; i < bullets.Length; i++)
             {
-                bullets[i] = new quad("Game/Content/bullet.png");
+                bullets[i] = new quad("Game/Content/bullet.png", parentState);
                 bullets[i].active = false;
                 bullets[i].AddComponent(new cDeactivateOnCollide(bullets[i], playerCharacter));
                 bullets[i].AddComponent(new cDeactivateAfter(10000));

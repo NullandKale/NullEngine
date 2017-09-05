@@ -20,11 +20,10 @@ namespace NullGame
             StateMachine.GameStateManager gMan = new StateMachine.GameStateManager();
 
             //give the game the current update function
-            game.currentState = gMan.update;
+            Game.toUpdate.Add(gMan.update);
 
             //Test State
-            //NullEngine.Game.TestState t = new NullEngine.Game.TestState();
-            //game.currentState = t.update;
+            //Game.currentState = new TestState();
 
             //set window run speed
             window.Run(1.0 / 60.0);

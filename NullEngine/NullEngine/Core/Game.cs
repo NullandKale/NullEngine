@@ -15,6 +15,7 @@ namespace NullEngine
         public static int tick = 0;
         public static InputManager input;
         public static ButtonManager buttonMan;
+        public static CollisionManager colMan;
         public static Queue<Action> renderQueue;
         public static TextureAtlas font;
         public static Texture2D buttonBackground;
@@ -22,7 +23,9 @@ namespace NullEngine
         public static Random rng;
         public static bool DEBUG_doNotLoad_SETTOFALSE = true;
 
-        public Action currentState;
+        public static StateMachine.iState currentState;
+
+        public static List<Action> toUpdate;
 
         private Matrix4 projMatrix;
 
@@ -70,6 +73,9 @@ namespace NullEngine
             //initialize managers
             input = new InputManager();
             buttonMan = new ButtonManager();
+            colMan = new CollisionManager(100);
+
+            toUpdate = new List<Action>();
 
             //initialize global textures
             font = new TextureAtlas("Game/Content/font.png", 16, 6, 8, 12, 0);
@@ -109,7 +115,13 @@ namespace NullEngine
             worldRect = new Rectangle(0, 0, worldMaxX, worldMaxY);
 
             //invoke update function
-            currentState.Invoke();
+
+            foreach(Action up in toUpdate)
+            {
+                up.Invoke();
+            }
+
+            currentState.update();
         }
 
         void window_RenderFrame(object sender, FrameEventArgs e)
