@@ -29,6 +29,13 @@
             }
         }
 
+        /// <summary>
+        /// Tests if an annotate is to be added to the debug line.
+        /// EX: 
+        /// Text: Debug statement.
+        /// Warning: Debug statement.
+        /// Error: Debug statement.
+        /// </summary>
         public static bool Annotate
         {
             get
