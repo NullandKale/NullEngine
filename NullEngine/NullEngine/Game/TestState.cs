@@ -31,7 +31,7 @@ namespace NullGame
 
         public void onButton()
         {
-            Console.WriteLine("Hello World!");
+            Debug.Text("Hello World!");
         }
 
         public void addUpdater(Action toAdd)

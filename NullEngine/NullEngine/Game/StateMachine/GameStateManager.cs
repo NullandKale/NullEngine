@@ -28,7 +28,7 @@ namespace NullGame.StateMachine
             if(debugEnabled)
             {
                 dState = new DebugState();
-                Console.WriteLine("Debug is enabled, loading debugState");
+                Debug.Text("Debug is enabled, loading debugState");
             }
         }
 

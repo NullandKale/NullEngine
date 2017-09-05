@@ -64,7 +64,7 @@ namespace NullEngine.Managers
         {
             int id = GL.GenTexture();
 
-            Console.WriteLine("Locking bitmap and sending to graphics memory");
+            Debug.Text("Locking bitmap and sending to graphics memory");
             BitmapData bmpData = final.LockBits(new Rectangle(0, 0, final.Width, final.Height),
                     ImageLockMode.ReadOnly, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
 
@@ -235,20 +235,20 @@ namespace NullEngine.Managers
 
         public static Bitmap BitmapFrom2DTileMap(worldTile[,] tiles)
         {
-            Console.WriteLine("Generating 2D tileMap bitmap");
+            Debug.Text("Generating 2D tileMap bitmap");
             int tileSizeX = tiles[0, 0].graphics.tAtlas.tilePixelWidth;
             int tileSizeY = tiles[0, 0].graphics.tAtlas.tilePixelHeight;
             int xTileCount = tiles[0, 0].graphics.tAtlas.tileWidth;
             int yTileCount = tiles[0, 0].graphics.tAtlas.tileHeight;
             String filePath = tiles[0, 0].graphics.tAtlas.path;
 
-            Console.WriteLine("Loading Tile Atlas");
+            Debug.Text("Loading Tile Atlas");
             Bitmap atlas = new Bitmap(filePath);
 
-            Console.WriteLine("Generating final bitmap");
+            Debug.Text("Generating final bitmap");
             Bitmap final = new Bitmap(tileSizeX * tiles.GetLength(0) + 1, tileSizeY * tiles.GetLength(1) + 1);
 
-            Console.WriteLine("Setting final bitmap pixels");
+            Debug.Text("Setting final bitmap pixels");
             for (int x = 0; x < tiles.GetLength(0); x++)
             {
                 for (int y = 0; y < tiles.GetLength(1); y++)
@@ -279,21 +279,21 @@ namespace NullEngine.Managers
 
         public static Texture2D TextureFrom2DTileMap(worldTile[,] tiles)
         {
-            Console.WriteLine("Generating 2D tileMap Texture");
+            Debug.Text("Generating 2D tileMap Texture");
             int tileSizeX = tiles[0, 0].graphics.tAtlas.tilePixelWidth;
             int tileSizeY = tiles[0, 0].graphics.tAtlas.tilePixelHeight;
             int xTileCount = tiles[0, 0].graphics.tAtlas.tileWidth;
             int yTileCount = tiles[0, 0].graphics.tAtlas.tileHeight;
             String filePath = tiles[0, 0].graphics.tAtlas.path;
 
-            Console.WriteLine("Loading Tile Atlas");
+            Debug.Text("Loading Tile Atlas");
             Bitmap atlas = new Bitmap(filePath);
 
-            Console.WriteLine("Generating final bitmap");
+            Debug.Text("Generating final bitmap");
             Bitmap final = new Bitmap(tileSizeX * tiles.GetLength(0) + 1, tileSizeY * tiles.GetLength(1) + 1);
             int id = GL.GenTexture();
 
-            Console.WriteLine("Setting final bitmap pixels");
+            Debug.Text("Setting final bitmap pixels");
             for (int x = 0; x < tiles.GetLength(0); x++)
             {
                 for (int y = 0; y < tiles.GetLength(1); y++)
@@ -319,7 +319,7 @@ namespace NullEngine.Managers
                 }
             }
 
-            Console.WriteLine("Locking bitmap and sending to graphics memory");
+            Debug.Text("Locking bitmap and sending to graphics memory");
             BitmapData bmpData = final.LockBits(new Rectangle(0, 0, final.Width, final.Height),
                     ImageLockMode.ReadOnly, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
 

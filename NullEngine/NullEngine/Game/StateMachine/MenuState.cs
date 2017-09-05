@@ -54,7 +54,7 @@ namespace NullGame.StateMachine
 
         public void enter()
         {
-            Console.WriteLine("Entered MenuState");
+            Debug.Text("Entered MenuState");
             Game.SetWindowCenter(-Game.window.Width / 2, -Game.window.Height / 2);
         }
 
@@ -86,14 +86,14 @@ namespace NullGame.StateMachine
         //exit game
         private void exit()
         {
-            Console.WriteLine("Good Bye!");
+            Debug.Text("Good Bye!");
             Program.exit();
         }
 
         //transition to game state
         private void toGameState()
         {
-            Console.WriteLine("Changing to GameState");
+            Debug.Text("Changing to GameState");
             GameStateManager.man.CurrentState = GameStateManager.man.gState;
             gState.enter();
         }

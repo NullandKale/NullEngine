@@ -123,7 +123,7 @@ namespace NullGame.WorldGen
                     Point currentPoint = new Point(rect.X + x, rect.Y + y);
                     if (Ray.isIntersectingPoint(r, currentPoint))
                     {
-                        //Console.WriteLine("[" + currentPoint.X + "," + currentPoint.Y + "]");
+                        //Debug.Text("[" + currentPoint.X + "," + currentPoint.Y + "]");
                         temp.Add(currentPoint);
                     }
                 }
@@ -140,7 +140,7 @@ namespace NullGame.WorldGen
                     Point currentPoint = new Point(rect.X + x, rect.Y + y);
                     if (Ray.isIntersectingPoint(r, currentPoint))
                     {
-                        //Console.WriteLine("[" + currentPoint.X + "," + currentPoint.Y + "]");
+                        //Debug.Text("[" + currentPoint.X + "," + currentPoint.Y + "]");
                         return true;
                     }
                 }

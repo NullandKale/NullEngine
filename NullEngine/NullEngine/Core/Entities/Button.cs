@@ -72,7 +72,7 @@ namespace NullEngine
 
         private void Echo()
         {
-            Console.WriteLine(echo);
+            Debug.Text(echo);
         }
 
         public void SetScale(float scale)

@@ -187,7 +187,7 @@ namespace NullGame.Managers
 
         public Chunk LoadChunkFromDisk(Point loc)
         {
-            Console.WriteLine("Loading Chunk @ [" + loc.X + "," + loc.Y + "]");
+            Debug.Text("Loading Chunk @ [" + loc.X + "," + loc.Y + "]");
             string chunkFile = GenChunkFileName(loc);
             IFormatter formatter = new BinaryFormatter();
             Stream stream = new FileStream(chunkFile, FileMode.Open, FileAccess.Read, FileShare.Read);
@@ -195,7 +195,7 @@ namespace NullGame.Managers
 
             if (stream.Length == 0)
             {
-                Console.WriteLine("Error in chunk saved to disk. Regnerating Chunk and Saving to Disk");
+                Debug.Text("Error in chunk saved to disk. Regnerating Chunk and Saving to Disk");
                 stream.Close();
                 c = wGen.GenerateWorld(loc);
                 SaveChunkToDisk(c);
@@ -226,7 +226,7 @@ namespace NullGame.Managers
                     else
                     {
                         stream.Close();
-                        Console.WriteLine("Chunk on disk");
+                        Debug.Text("Chunk on disk");
                         return true;
                     }
                 }
@@ -237,7 +237,7 @@ namespace NullGame.Managers
             }
             else
             {
-                Console.WriteLine("Not loading chunks from disk");
+                Debug.Text("Not loading chunks from disk");
                 return false;
             }
         }

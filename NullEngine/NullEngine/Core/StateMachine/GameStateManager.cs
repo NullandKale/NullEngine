@@ -19,7 +19,7 @@ namespace NullEngine.StateMachine
             }
             else
             {
-                Console.WriteLine("Singleton Failure @ GameStateManager");
+                Debug.Error("Singleton Failure @ GameStateManager");
             }
 
             if(System.IO.File.Exists("DEBUG_MODE_ENABLED"))

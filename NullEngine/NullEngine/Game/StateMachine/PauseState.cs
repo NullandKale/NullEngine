@@ -78,7 +78,7 @@ namespace NullGame.StateMachine
 
         public void enter()
         {
-            Console.WriteLine("Entered PauseState");
+            Debug.Text("Entered PauseState");
         }
 
         public void addUpdater(Action toAdd)
@@ -116,7 +116,7 @@ namespace NullGame.StateMachine
         //change to gameState
         private void toGameState()
         {
-            Console.WriteLine("Changing to GameState");
+            Debug.Text("Changing to GameState");
             GameStateManager.man.CurrentState = GameStateManager.man.gState;
             GameStateManager.man.CurrentState.enter();
         }
@@ -124,7 +124,7 @@ namespace NullGame.StateMachine
         //change to menueState
         private void toMenuState()
         {
-            Console.WriteLine("Changing to MenuState");
+            Debug.Text("Changing to MenuState");
             GameStateManager.man.CurrentState = GameStateManager.man.mState;
             mState.enter();
         }
@@ -132,7 +132,7 @@ namespace NullGame.StateMachine
         //toggle if the confirmation text is showm
         private void confirmation()
         {
-            Console.WriteLine("Confirmation Called");
+            Debug.Text("Confirmation Called");
             isConfirmationOpen = !isConfirmationOpen;
             returnToGameButton.SetActive(!isConfirmationOpen);
             optionsButton.SetActive(!isConfirmationOpen);

@@ -8,7 +8,7 @@ namespace NullEngine.Managers
     {
         public SingletonException(object o)
         {
-            Console.WriteLine("Singleton Exception @ " + o.GetType().ToString());
+            Debug.Warning("Singleton Exception @ " + o.GetType().ToString());
         }
     }
 }

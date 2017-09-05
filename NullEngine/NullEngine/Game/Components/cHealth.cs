@@ -41,7 +41,7 @@ namespace NullGame.Component
             {
                 delayTimer = delayAmount;
                 currentHealth -= amount;
-                Console.WriteLine("Player Health = " + currentHealth);
+                Debug.Text("Player Health = " + currentHealth);
             }
         }
 

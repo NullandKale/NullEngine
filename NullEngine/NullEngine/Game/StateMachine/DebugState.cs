@@ -30,7 +30,7 @@ namespace NullGame.StateMachine
 
         public void enter()
         {
-            Console.WriteLine("Entered Debug State");
+            Debug.Text("Entered Debug State");
             windowPos = new Point(Game.worldCenterX, Game.worldCenterY);
             if(lastWorldPos != Point.Empty)
             {
@@ -53,7 +53,7 @@ namespace NullGame.StateMachine
             if(Game.input.isClickedFalling(OpenTK.Input.MouseButton.Left))
             {
                 Point mPos = Game.ScreenToWorldSpace(Game.input.mousePos);
-                Console.WriteLine("MousePos: [" + mPos.X + "," + mPos.Y + "]");
+                Debug.Text("MousePos: [" + mPos.X + "," + mPos.Y + "]");
             }
 
             MoveScreen();
@@ -61,7 +61,7 @@ namespace NullGame.StateMachine
 
         public void exitDebugState()
         {
-            Console.WriteLine("Exiting Debug State");
+            Debug.Text("Exiting Debug State");
             lastWorldPos = new Point(Game.worldCenterX, Game.worldCenterY);
             Game.SetWindowCenter(windowPos.X, windowPos.Y);
             GameStateManager.man.CurrentState = previousState;

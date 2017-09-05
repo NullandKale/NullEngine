@@ -161,7 +161,7 @@ namespace NullGame.Managers
             }
 
             //debug info
-            Console.WriteLine("Level: " + level + " with " + count + " enemies to Kill");
+            Debug.Text("Level: " + level + " with " + count + " enemies to Kill");
         }
 
         public Point getRandomPos()

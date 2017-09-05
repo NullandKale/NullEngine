@@ -94,7 +94,7 @@ namespace NullGame.StateMachine
         //called whenever a state is entered
         public void enter()
         {
-            Console.WriteLine("Entered GameState");
+            Debug.Text("Entered GameState");
             Game.SetWindowCenter(LastWorldPos.X, LastWorldPos.Y);
         }
 
@@ -149,7 +149,7 @@ namespace NullGame.StateMachine
 
         private void toPauseState()
         {
-            Console.WriteLine("Changing to PauseState");
+            Debug.Text("Changing to PauseState");
             GameStateManager.man.CurrentState = GameStateManager.man.pState;
             LastWorldPos = new Point(Game.worldCenterX, Game.worldCenterY);
             pState.enter();
@@ -177,7 +177,7 @@ namespace NullGame.StateMachine
             gameover.SetActive(false);
             playerCharacter.active = true;
             playerHealth.resurrect();
-            Console.WriteLine("Changing to MenuState");
+            Debug.Text("Changing to MenuState");
             GameStateManager.man.CurrentState = GameStateManager.man.mState;
             LastWorldPos = new Point(0,0);
             mState.enter();

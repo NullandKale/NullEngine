@@ -199,7 +199,7 @@ namespace NullGame.WorldGen
 
             for(int i = 0; i < wData.Dungeons.Count; i++)
             {
-                Console.WriteLine("Dungeon @ [" + wData.Dungeons[i].DoorChunkLoc.X + "," + wData.Dungeons[i].DoorChunkLoc.Y + "]");
+                Debug.Text("Dungeon @ [" + wData.Dungeons[i].DoorChunkLoc.X + "," + wData.Dungeons[i].DoorChunkLoc.Y + "]");
                 if(wData.Dungeons[i].DoorChunkLoc.X / wData.chunkSize == tempChunkPos.X && wData.Dungeons[i].DoorChunkLoc.Y / wData.chunkSize == tempChunkPos.Y)
                 {
                     tempChunk.hasDungeon = true;
@@ -222,7 +222,7 @@ namespace NullGame.WorldGen
 
             for (int i = 0; i < wData.Villages.Count; i++)
             {
-                Console.WriteLine("Village @ [" + wData.Villages[i].Loc.X + "," + wData.Villages[i].Loc.Y + "] [" + wData.Villages[i].ConnectedVillageLoc.X + "," + wData.Villages[i].ConnectedVillageLoc.Y + "]");
+                Debug.Text("Village @ [" + wData.Villages[i].Loc.X + "," + wData.Villages[i].Loc.Y + "] [" + wData.Villages[i].ConnectedVillageLoc.X + "," + wData.Villages[i].ConnectedVillageLoc.Y + "]");
                 if(wData.Villages[i].roadChunks.Contains(tempChunk.key))
                 {
                     List<Point> roadPoints = Ray.pointsIntersectingRect(wData.Villages[i].VillageToVillage, tempChunk.chunkRect);

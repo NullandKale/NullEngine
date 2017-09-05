@@ -13,6 +13,9 @@
 
         private static bool toFile = true;
 
+        /// <summary>
+        /// A bool to test if the debug statement should output to a file.
+        /// </summary>
         public static bool OutputLog
         {
             get
@@ -25,10 +28,14 @@
             }
         }
 
+        /// <summary>
+        /// Outputs a line of text to the console.
+        /// </summary>
+        /// <param name="text">The text to output</param>
         public static void Text(string text)
         {
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("Text: " + text);
+            Console.WriteLine(text);
             Console.ForegroundColor = ConsoleColor.White;
 
             if (toFile)
@@ -37,10 +44,14 @@
             }
         }
 
+        /// <summary>
+        /// Outputs a warning to the console.
+        /// </summary>
+        /// <param name="text">The text to output</param>
         public static void Warning(string text)
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("Warning: " + text);
+            Console.WriteLine(text);
             Console.ForegroundColor = ConsoleColor.White;
 
             if (toFile)
@@ -49,10 +60,14 @@
             }
         }
 
+        /// <summary>
+        /// Outputs an error to the console.
+        /// </summary>
+        /// <param name="text">The text to output</param>
         public static void Error(string text)
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("Error: " + text);
+            Console.WriteLine(text);
             Console.ForegroundColor = ConsoleColor.White;
 
             if (toFile)
@@ -61,6 +76,10 @@
             }
         }
 
+        /// <summary>
+        /// Outputs a line of text to the log.
+        /// </summary>
+        /// <param name="text">The text to log.</param>
         private static void ToLogFile(string text)
         {
             logLines.Add(text);

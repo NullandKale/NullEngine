@@ -11,7 +11,7 @@ namespace NullGame.Component
         {
             if(Game.input.KeyFallingEdge(OpenTK.Input.Key.R))
             {
-                Console.WriteLine("[" + r.pos.xPos + "," + r.pos.yPos + "]");
+                Debug.Text("[" + r.pos.xPos + "," + r.pos.yPos + "]");
             }
         }
     }
