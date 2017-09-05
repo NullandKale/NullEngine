@@ -31,7 +31,12 @@ namespace NullGame
 
         public void onButton()
         {
+            Console.WriteLine("Hello World!");
+        }
 
+        public void addUpdater(Action toAdd)
+        {
+            updaters.Add(toAdd);
         }
 
         public void enter()

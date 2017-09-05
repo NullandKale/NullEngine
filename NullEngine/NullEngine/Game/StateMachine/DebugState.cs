@@ -68,6 +68,11 @@ namespace NullGame.StateMachine
             previousState.enter();
         }
 
+        public void addUpdater(Action toAdd)
+        {
+            updaters.Add(toAdd);
+        }
+
         public void MoveScreen()
         {
             int halfWindowWidth = Game.windowRect.Width / 2;

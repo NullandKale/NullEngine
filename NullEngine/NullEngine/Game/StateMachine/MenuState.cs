@@ -38,28 +38,29 @@ namespace NullGame.StateMachine
             //this button calls toGameState
             newGameButton = new Button(newGameText, Game.buttonBackground, toGameState, OpenTK.Input.MouseButton.Left, this);
             newGameButton.SetCenterPos(new Point(Game.window.Width / 2, Game.window.Height / 2));
-            updaters.Add(newGameButton.update);
 
             //NOT IMPLEMENTED
             loadGameButton = new Button(loadGameText, Game.buttonBackground, "Not Implemented", OpenTK.Input.MouseButton.Left, this);
             loadGameButton.SetCenterPos(new Point(Game.window.Width / 2, (Game.window.Height / 2) + 60));
-            updaters.Add(loadGameButton.update);
 
             //NOT IMPLEMENTED
             settingsButton = new Button(settingsText, Game.buttonBackground, "Not Implemented Either", OpenTK.Input.MouseButton.Left, this);
             settingsButton.SetCenterPos(new Point(Game.window.Width / 2, (Game.window.Height / 2) + 120));
-            updaters.Add(settingsButton.update);
 
             //this button calls exit
             exitButton = new Button(exitText, Game.buttonBackground, exit, OpenTK.Input.MouseButton.Left, this);
             exitButton.SetCenterPos(new Point(Game.window.Width / 2, (Game.window.Height / 2) + 180));
-            updaters.Add(exitButton.update);
         }
 
         public void enter()
         {
             Console.WriteLine("Entered MenuState");
             Game.SetWindowCenter(-Game.window.Width / 2, -Game.window.Height / 2);
+        }
+
+        public void addUpdater(Action toAdd)
+        {
+            updaters.Add(toAdd);
         }
 
         public void update()

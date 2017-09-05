@@ -121,6 +121,7 @@ namespace NullEngine.Entity
             //generate the texture based off of the tile array
             tex = Managers.TextureManager.TextureFrom1DTileMap(tiles);
             textString = "";
+            parent.addUpdater(update);
         }
 
         //construct a text entity based off of a string
@@ -143,6 +144,7 @@ namespace NullEngine.Entity
             //generate the texture based off of the tile array
             tex = Managers.TextureManager.TextureFrom1DTileMap(tiles);
             textString = s;
+            parent.addUpdater(update);
         }
         
         public void ChangeText(string s)

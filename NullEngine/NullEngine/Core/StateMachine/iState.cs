@@ -5,5 +5,6 @@
     {
         void enter();
         void update();
+        void addUpdater(System.Action toAdd);
     }
 }

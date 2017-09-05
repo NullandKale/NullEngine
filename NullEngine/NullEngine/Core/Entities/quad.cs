@@ -20,6 +20,7 @@ namespace NullEngine.Entity
             tex = Managers.TextureManager.LoadTexture(textureLocation, false);
             height = tex.height;
             width = tex.width;
+            parent.addUpdater(update);
         }
 
         public quad(Texture2D texture, StateMachine.iState parent)
@@ -30,6 +31,7 @@ namespace NullEngine.Entity
             tex = texture;
             height = tex.height;
             width = tex.width;
+            parent.addUpdater(update);
         }
 
         //Construct with texture atlas and Texture ID
@@ -43,6 +45,7 @@ namespace NullEngine.Entity
             tex = tAtlas.getTile(id);
             height = tAtlas.tilePixelHeight;
             width = tAtlas.tilePixelWidth;
+            parent.addUpdater(update);
         }
 
         public override void update()

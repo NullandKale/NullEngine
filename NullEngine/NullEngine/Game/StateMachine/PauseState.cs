@@ -48,35 +48,29 @@ namespace NullGame.StateMachine
             //for this button if it is pressed call toGameState
             returnToGameButton = new Button(returnText, Game.buttonBackground, toGameState, OpenTK.Input.MouseButton.Left, this);
             returnToGameButton.SetCenterPos(new Point(Game.window.Width / 2, Game.window.Height / 2));
-            updaters.Add(returnToGameButton.update);
 
             //NOT IMPLEMENTED
             optionsButton = new Button(optionsText, Game.buttonBackground, "Not Implemented", OpenTK.Input.MouseButton.Left, this);
             optionsButton.SetCenterPos(new Point(Game.window.Width / 2, Game.window.Height / 2 + 60));
-            updaters.Add(optionsButton.update);
 
             //for this button if it is pressed call confirmation
             exitToMenu = new Button(exitText, Game.buttonBackground, confirmation, OpenTK.Input.MouseButton.Left, this);
             exitToMenu.SetCenterPos(new Point(Game.window.Width / 2, Game.window.Height / 2 + 120));
-            updaters.Add(exitToMenu.update);
 
             //this is used just for text
             areYouSure = new Button(areYouSureText, Game.buttonBackground, "", OpenTK.Input.MouseButton.Left, this);
             areYouSure.SetCenterPos(new Point(Game.window.Width / 2, Game.window.Height / 2));
             areYouSure.SetActive(false);
-            updaters.Add(areYouSure.update);
 
             //for this button if it is pressed call toMenuState
             yes = new Button(yesText, Game.buttonBackground, toMenuState, OpenTK.Input.MouseButton.Left, this);
             yes.SetCenterPos(new Point(Game.window.Width / 2 - 60, Game.window.Height / 2 + 60));
             yes.SetActive(false);
-            updaters.Add(yes.update);
 
             //for this button if it is pressed call confirmation
             no = new Button(noText, Game.buttonBackground, confirmation, OpenTK.Input.MouseButton.Left, this);
             no.SetCenterPos(new Point(Game.window.Width / 2 + 60, Game.window.Height / 2 + 60));
             no.SetActive(false);
-            updaters.Add(no.update);
 
             //set confirmation open to false
             isConfirmationOpen = false;
@@ -85,6 +79,11 @@ namespace NullGame.StateMachine
         public void enter()
         {
             Console.WriteLine("Entered PauseState");
+        }
+
+        public void addUpdater(Action toAdd)
+        {
+            updaters.Add(toAdd);
         }
 
         public void update()

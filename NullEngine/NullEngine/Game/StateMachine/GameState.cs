@@ -56,7 +56,6 @@ namespace NullGame.StateMachine
             //initialize background entity
             background = new quad(Managers.WorldManager.worldTex, this);
             background.AddComponent(new cBackgroundManger());
-            updaters.Add(background.update);
 
             //initialize player character entity
             playerCharacter = new quad("Game/Content/roguelikeCharBeard_transparent.png", this);
@@ -73,7 +72,6 @@ namespace NullGame.StateMachine
             playerCharacter.AddComponent(new cDEBUG_POS());
             playerCharacter.AddComponent(new cRangedWeapon(playerCharacter, playerBulletMan, 10, this));
             playerCharacter.tag = "Player";
-            updaters.Add(playerCharacter.update);
 
             //initialize enemy manager
             eMan = new Managers.EnemyManager(playerCharacter, playerHealth, 1000, this);
@@ -82,19 +80,15 @@ namespace NullGame.StateMachine
             //initialize UI entities
             gameover = new Button("Game Over. Click to go to Main Menu", Game.buttonBackground, toMenuState, OpenTK.Input.MouseButton.Left, this);
             gameover.SetActive(false);
-            updaters.Add(gameover.update);
 
             uiHealth = new Button("Health: 00", Game.buttonBackground, "", OpenTK.Input.MouseButton.Left, this);
             uiHealth.t.AddComponent(new cUIHealth(uiHealth.t, playerHealth));
-            updaters.Add(uiHealth.update);
 
             uiLevel = new Button("Level 00", Game.buttonBackground, "", OpenTK.Input.MouseButton.Left, this);
             uiLevel.t.AddComponent(new cUILevel(uiLevel.t));
-            updaters.Add(uiLevel.update);
 
             uiPos = new Button("[0,0] {00,00}", Game.buttonBackground, "", OpenTK.Input.MouseButton.Left, this);
             uiPos.t.AddComponent(new cUIPosition(uiPos.t));
-            updaters.Add(uiPos.update);
         }
 
         //called whenever a state is entered
@@ -102,6 +96,11 @@ namespace NullGame.StateMachine
         {
             Console.WriteLine("Entered GameState");
             Game.SetWindowCenter(LastWorldPos.X, LastWorldPos.Y);
+        }
+
+        public void addUpdater(Action toAdd)
+        {
+            updaters.Add(toAdd);
         }
 
         public void update()
