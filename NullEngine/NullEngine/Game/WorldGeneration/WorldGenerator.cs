@@ -11,6 +11,7 @@ namespace NullGame.WorldGen
     public class WorldGenerator
     {
         public WorldData wData;
+        public NullEngine.StateMachine.iState parentState;
 
         private int tileSize;
         private double scale;
@@ -18,9 +19,10 @@ namespace NullGame.WorldGen
         private CollisionManager cMan;
         private List<cCollider> colliders;
 
-        public WorldGenerator(int seed, int worldSize, int chunkSize, double scale, int tileSize, CollisionManager collisionManager)
+        public WorldGenerator(int seed, int worldSize, int chunkSize, double scale, int tileSize, CollisionManager collisionManager, NullEngine.StateMachine.iState parent)
         {
             cMan = collisionManager;
+            parentState = parent;
             noise = new OpenSimplexNoise(seed);
             this.scale = scale;
             this.tileSize = tileSize;
@@ -60,7 +62,7 @@ namespace NullGame.WorldGen
                 {
                     if (tempChunk[x, y].isCollideable)
                     {
-                        colliders.Add(new cCollider(getTileRect(x, y)));
+                        colliders.Add(new cCollider(getTileRect(x, y), parentState));
                     }
                 }
             }

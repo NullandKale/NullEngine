@@ -9,18 +9,22 @@ namespace NullEngine.Component
         public Rectangle rect;
         public Point key;
 
+        public StateMachine.iState parentState;
+
         public bool component;
 
         public cCollider(renderable r)
         {
             Managers.CollisionManager.addCollider(this);
             rRef = r;
+            parentState = r.parentState;
             rect = new Rectangle((int)rRef.pos.xPos, (int)rRef.pos.yPos, rRef.getWidth(), rRef.getHeight());
             component = true;
         }
 
-        public cCollider(Rectangle r)
+        public cCollider(Rectangle r, StateMachine.iState parent)
         {
+            parentState = parent;
             rect = r;
             Managers.CollisionManager.addCollider(this);
             Managers.CollisionManager.moveCollider(this);

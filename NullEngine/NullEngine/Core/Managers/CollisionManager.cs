@@ -156,7 +156,7 @@ namespace NullEngine.Managers
                         for (int k = 0; k < box.Count; k++)
                         {
                             //~~ if the object collides with the calling object and it is not the calling object ~~
-                            if (c.collides(box[k]) && c != box[k])
+                            if (c.collides(box[k]) && c != box[k] && c.parentState == box[k].parentState)
                             {
                                 //~~ add that object to the list to return
                                 temp.Add(box[k]);
@@ -195,7 +195,7 @@ namespace NullEngine.Managers
                         for (int k = 0; k < box.Count; k++)
                         {
                             //~~ if the object collides with the calling object and it is not the calling object ~~
-                            if (box[k].collides(rect, c) && c != box[k])
+                            if (box[k].collides(rect, c) && c != box[k] && c.parentState == box[k].parentState)
                             {
                                 //~~ add that object to the list to return
                                 temp.Add(box[k]);
@@ -265,7 +265,7 @@ namespace NullEngine.Managers
                         for (int k = 0; k < box.Count; k++)
                         {
                             //-- check if the bounding box collides and is not the object calling this function return true
-                            if (box[k].collides(rect, c) && c != box[k])
+                            if (box[k].collides(rect, c) && c != box[k] && c.parentState == box[k].parentState)
                             {
                                 return true;
                             }

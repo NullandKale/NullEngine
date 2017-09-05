@@ -53,7 +53,7 @@ namespace NullGame.Managers
         public WorldGenerator wGen;
         private Dictionary<Point, Chunk> worldCache;
 
-        public WorldManager(int seed, int worldSize, int chunkSize, double scale, int tileSize, CollisionManager collisionManager, Point curretChunk)
+        public WorldManager(int seed, int worldSize, int chunkSize, double scale, int tileSize, CollisionManager collisionManager, Point curretChunk, NullEngine.StateMachine.iState parent)
         {
             if(man == null)
             {
@@ -74,7 +74,7 @@ namespace NullGame.Managers
             this.tileSize = tileSize;
             this.scale = scale;
 
-            wGen = new WorldGenerator(seed, worldSize, chunkSize, scale, tileSize, collisionManager);
+            wGen = new WorldGenerator(seed, worldSize, chunkSize, scale, tileSize, collisionManager, parent);
             worldFileLoc += seed.ToString() + "/";
             worldCache = new Dictionary<Point, Chunk>();
             LoadChunk();
