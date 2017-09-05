@@ -9,7 +9,7 @@ namespace NullGame
         {
             //entry point
             Debug.Text("Loading");
-
+            
             //create a window and set graphics mode
             OpenTK.GameWindow window = new OpenTK.GameWindow(1600, 900, new OpenTK.Graphics.GraphicsMode(32, 8, 0, 0));
 

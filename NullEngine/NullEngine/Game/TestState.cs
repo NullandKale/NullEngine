@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using NullEngine;
 using NullEngine.Entity;
 
 namespace NullGame
@@ -7,7 +8,7 @@ namespace NullGame
     class TestState : NullEngine.StateMachine.iState
     {
         public quad pc;
-        public NullEngine.Button b;
+        public Button b;
 
         private List<Action> updaters;
 

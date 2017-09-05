@@ -11,7 +11,8 @@
     {
         private static List<string> logLines = new List<string>();
 
-        private static bool toFile = true;
+        private static bool toFile = false;
+        private static bool annotate = false;
 
         /// <summary>
         /// A bool to test if the debug statement should output to a file.
@@ -24,7 +25,19 @@
             }
             set
             {
-                toFile = OutputLog;
+                toFile = value;
+            }
+        }
+
+        public static bool Annotate
+        {
+            get
+            {
+                return annotate;
+            }
+            set
+            {
+                annotate = value;
             }
         }
 
@@ -35,7 +48,7 @@
         public static void Text(string text)
         {
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine(text);
+            Console.WriteLine((annotate ? "Text: " :  string.Empty) + text);
             Console.ForegroundColor = ConsoleColor.White;
 
             if (toFile)
@@ -51,7 +64,7 @@
         public static void Warning(string text)
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine(text);
+            Console.WriteLine((annotate ? "Warning: " : string.Empty) + text);
             Console.ForegroundColor = ConsoleColor.White;
 
             if (toFile)
@@ -67,7 +80,7 @@
         public static void Error(string text)
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine(text);
+            Console.WriteLine((annotate ? "Error: " : string.Empty) + text);
             Console.ForegroundColor = ConsoleColor.White;
 
             if (toFile)
