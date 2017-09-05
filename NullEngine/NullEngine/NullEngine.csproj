@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\Debug.cs" />
     <Compile Include="Core\letter.cs" />
     <Compile Include="Core\Extensions\DoubleExtensions.cs" />
     <Compile Include="Core\Extensions\FloatExtensions.cs" />

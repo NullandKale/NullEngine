@@ -5,13 +5,13 @@ namespace NullGame
 {
     class Program
     {
-      static void Main(string[] args)
+        static void Main(string[] args)
         {
             //entry point
-            Console.WriteLine("Loading.......");
+            Debug.Text("Loading");
 
             //create a window and set graphics mode
-            OpenTK.GameWindow window = new OpenTK.GameWindow(1600, 900, new OpenTK.Graphics.GraphicsMode(32,8,0,0));
+            OpenTK.GameWindow window = new OpenTK.GameWindow(1600, 900, new OpenTK.Graphics.GraphicsMode(32, 8, 0, 0));
 
             //create a game singleton
             Game game = new Game(window);
