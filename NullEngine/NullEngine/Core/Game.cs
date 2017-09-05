@@ -58,13 +58,17 @@ namespace NullEngine
 
         private Stopwatch sw;
 
-        public Game(GameWindow w)
+        public Game()
         {
             //init global RNG
             rng = new Random();
 
+            Settings.Load("settings.ini");
+
+            //create a window and set graphics mode
+            window = new GameWindow(Settings.xRes, Settings.yRes, new OpenTK.Graphics.GraphicsMode(Settings.colorDepth, Settings.bitDepth, 0, 0));
+
             //initialize window data
-            window = w;
             worldMaxX = int.MaxValue;
             worldMaxY = int.MaxValue;
             worldRect = new Rectangle(0, 0, worldMaxX, worldMaxY);
@@ -79,7 +83,7 @@ namespace NullEngine
 
             //initialize global textures
             font = new TextureAtlas("Game/Content/font.png", 16, 6, 8, 12, 0);
-            buttonBackground = Managers.TextureManager.LoadTexture("Game/Content/buttonBackground.png", false);
+            buttonBackground = TextureManager.LoadTexture("Game/Content/buttonBackground.png", false);
 
             //inititialize frame timer;
             sw = new Stopwatch();
@@ -158,6 +162,12 @@ namespace NullEngine
             }
         }
 
+        public static void Run()
+        {
+            //set window run speed
+            window.Run(1.0 / (float)Settings.updateSpeed);
+        }
+
         //transform a point from screenspace to world space
         public static Point ScreenToWorldSpace(Point p)
         {
@@ -187,6 +197,12 @@ namespace NullEngine
             {
                 tick = 0;
             }
+        }
+
+        //public exit function
+        public static void exit()
+        {
+            Environment.Exit(0);
         }
     }
 }

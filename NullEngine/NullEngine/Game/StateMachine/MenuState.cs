@@ -87,7 +87,7 @@ namespace NullGame.StateMachine
         private void exit()
         {
             Debug.Text("Good Bye!");
-            Program.exit();
+            Game.exit();
         }
 
         //transition to game state
