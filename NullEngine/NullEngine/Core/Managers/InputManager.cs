@@ -4,7 +4,7 @@ using System.Drawing;
 
 namespace NullEngine.Managers
 {
-    class InputManager
+    public class InputManager
     {
         //keyboard state storage, one for the current frame and one for the last frame
         private KeyboardState lastKeyState;

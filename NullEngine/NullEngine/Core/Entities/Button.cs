@@ -5,7 +5,7 @@ using NullEngine.Entity;
 
 namespace NullEngine
 {
-    class Button
+    public class Button
     {
         public text t;
         public quad background;

@@ -6,7 +6,7 @@ using NullEngine.StateMachine;
 
 namespace NullEngine.Managers
 {
-    class ButtonManager
+    public class ButtonManager
     {
         //keep a list of references to the buttons
         public List<Button> Buttons = new List<Button>();

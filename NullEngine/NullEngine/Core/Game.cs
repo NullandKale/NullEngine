@@ -9,7 +9,7 @@ using NullEngine.Managers;
 
 namespace NullEngine
 {
-    class Game
+    public class Game
     {
         public static GameWindow window;
         public static int tick = 0;
@@ -67,6 +67,7 @@ namespace NullEngine
 
             //create a window and set graphics mode
             window = new GameWindow(Settings.xRes, Settings.yRes, new OpenTK.Graphics.GraphicsMode(Settings.colorDepth, Settings.bitDepth, 0, 0));
+            window.Title = "NullEngine Test";
 
             //initialize window data
             worldMaxX = int.MaxValue;
