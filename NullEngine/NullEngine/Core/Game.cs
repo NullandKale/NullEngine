@@ -166,7 +166,7 @@ namespace NullEngine
         public static void Run()
         {
             //set window run speed
-            window.Run(1.0 / (float)Settings.updateSpeed);
+            window.Run(1.0 / (float)Settings.updateRate);
         }
 
         //transform a point from screenspace to world space
