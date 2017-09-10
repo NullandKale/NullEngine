@@ -6,6 +6,7 @@
 *.user
 *.userosscache
 *.sln.docstates
+NullEngine/NullEngine/NullEngine.sln
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
