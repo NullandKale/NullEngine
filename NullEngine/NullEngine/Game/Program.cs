@@ -1,17 +1,14 @@
 ﻿using NullEngine;
 using NullGame.StateMachine;
-using System;
+using NullEngine.Core;
 
 namespace NullGame
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Run()
         {
-            //entry point
-            Debug.Text("Loading");
-
-            //create a game singleton
+            // Runs the game.
             Game game = new Game();
 
             //create game logic statemachine
@@ -20,11 +17,17 @@ namespace NullGame
             //give the game the current update function
             Game.toUpdate.Add(gMan.update);
 
-            //Comment line 20 an line 17 and unComment the below line to activate collision Test
+            //Comment line 21 an line 18 and unComment the below line to activate collision Test
             //Game.currentState = new TestState();
 
             //RUN THE GAME!!!!
             Game.Run();
+        }
+
+        static void Main(string[] args)
+        {
+            Settings.Initialize();
+            Run();
         }
     }
 }

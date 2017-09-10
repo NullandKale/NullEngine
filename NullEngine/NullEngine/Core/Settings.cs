@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Collections.Generic;
+using System.Reflection;
 
 namespace NullEngine
 {
@@ -88,6 +89,26 @@ namespace NullEngine
                 "UpdateRate " + updateRate.ToString()
             };
             File.AppendAllLines(fileName, text.ToArray());
+        }
+
+        /// <summary>
+        /// Initializes the required Assemblies to run the program.
+        /// </summary>
+        public static void Initialize()
+        {
+            AppDomain.CurrentDomain.AssemblyResolve += (Object sender, ResolveEventArgs arg) =>
+            {
+                String thisExe = Assembly.GetExecutingAssembly().GetName().Name;
+                AssemblyName embeddedAssembly = new AssemblyName(arg.Name);
+                String resourceName = thisExe + "." + embeddedAssembly.Name + ".dll";
+
+                using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(resourceName))
+                {
+                    Byte[] assemblyData = new Byte[stream.Length];
+                    stream.Read(assemblyData, 0, assemblyData.Length);
+                    return Assembly.Load(assemblyData);
+                }
+            };
         }
     }
 }

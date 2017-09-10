@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace NullEngine.StateMachine
+﻿namespace NullEngine.StateMachine
 {
-    class GameStateManager : StateManager
+    public class GameStateManager : StateManager
     {
         //static singleton reference
         public static GameStateManager man;
