@@ -128,11 +128,12 @@ namespace NullGame.StateMachine
 
 
                 //run all entities update functions
+                updateUI();
+
                 for (int i = 0; i < updaters.Count; i++)
                 {
                     updaters[i].Invoke();
                 }
-                updateUI();
             }
             else
             {
