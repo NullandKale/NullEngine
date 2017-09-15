@@ -198,7 +198,7 @@ namespace NullEngine.Managers
                         for (int k = 0; k < box.Count; k++)
                         {
                             //~~ if the object collides with the calling object and it is not the calling object ~~
-                            if (box[k].collides(rect, c) && c != box[k] && c.parentState == box[k].parentState && c.rRef.active && box[k].rRef.active)
+                            if (box[k].collides(rect, c) && c != box[k] && c.parentState == box[k].parentState && c.rRef.active)
                             {
                                 //~~ add that object to the list to return
                                 temp.Add(box[k]);
