@@ -52,8 +52,6 @@ namespace NullGame
                 update.Invoke();
             }
 
-            numberOfColliders.t.ChangeText(colliderCount.ToString());
-
             while(colliderCount > colliders.Count)
             {
                 colliders.Add(createEntity());
@@ -79,6 +77,8 @@ namespace NullGame
             {
                 colliderCount += 100;
             }
+
+            numberOfColliders.t.ChangeText(colliderCount.ToString());
         }
 
         void decreaseColCount()
@@ -99,12 +99,16 @@ namespace NullGame
             {
                 colliderCount -= 100;
             }
+
+            numberOfColliders.t.ChangeText(colliderCount.ToString());
         }
 
         public quad createEntity()
         {
             quad temp = new quad("Game/Content/bullet.png", this);
             temp.AddComponent(new Components.cBounce(temp));
+            temp.pos.xScale = 0.75f;
+            temp.pos.yScale = 0.75f;
             temp.pos.xPos = Game.rng.Next(Game.windowRect.Left, Game.windowRect.Right);
             temp.pos.yPos = Game.rng.Next(Game.windowRect.Top, Game.windowRect.Bottom);
             return temp;

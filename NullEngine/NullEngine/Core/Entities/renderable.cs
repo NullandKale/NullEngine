@@ -26,7 +26,7 @@ namespace NullEngine.Entity
 
         public Rectangle getRect()
         {
-            return new Rectangle((int)pos.xPos, (int)pos.yPos, getWidth(), getHeight());
+            return new Rectangle((int)pos.xPos, (int)pos.yPos, (int)(getWidth() * pos.xScale), (int)(getHeight() * pos.yScale));
         }
 
         public void OnDestroy()

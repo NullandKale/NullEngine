@@ -13,7 +13,6 @@ namespace NullGame.Component
             followTarget = target;
         }
 
-
         public void Run(renderable r)
         {
             int halfWindowWidth = Game.windowRect.Width / 2;

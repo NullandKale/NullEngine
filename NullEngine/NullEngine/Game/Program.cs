@@ -27,6 +27,7 @@ namespace NullGame
         static void Main(string[] args)
         {
             Settings.Initialize();
+
             Run();
         }
     }

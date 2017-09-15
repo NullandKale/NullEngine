@@ -22,53 +22,56 @@ namespace NullGame.Components
 
         public override void Run(renderable r)
         {
-            base.Run(r);
-
-            colliding = NullEngine.Managers.CollisionManager.man.CheckCollision(this);
-
-            if(colliding.Count > 0)
+            if(!NullEngine.Game.input.KeyHeld(OpenTK.Input.Key.Space))
             {
-                if(colliding[0].rect.X > rect.X)
+                base.Run(r);
+
+                colliding = NullEngine.Managers.CollisionManager.man.CheckCollision(this);
+
+                if (colliding.Count > 0)
                 {
-                    xVel = NullEngine.Game.rng.Next(-10, 0);
+                    if (colliding[0].rect.X > rect.X)
+                    {
+                        xVel = NullEngine.Game.rng.Next(-10, 0);
+                    }
+
+                    if (colliding[0].rect.X < rect.X)
+                    {
+                        xVel = NullEngine.Game.rng.Next(0, 10);
+                    }
+
+                    if (colliding[0].rect.Y > rect.Y)
+                    {
+                        yVel = NullEngine.Game.rng.Next(-10, 0);
+                    }
+
+                    if (colliding[0].rect.Y < rect.Y)
+                    {
+                        yVel = NullEngine.Game.rng.Next(0, 10);
+                    }
                 }
 
-                if (colliding[0].rect.X < rect.X)
+                r.setRelativePos(xVel, yVel);
+
+                if (r.pos.xPos < NullEngine.Game.windowRect.Left)
                 {
-                    xVel = NullEngine.Game.rng.Next(0, 10);
+                    xVel = 5;
                 }
 
-                if (colliding[0].rect.Y > rect.Y)
+                if (r.pos.xPos > NullEngine.Game.windowRect.Right)
                 {
-                    yVel = NullEngine.Game.rng.Next(-10, 0);
+                    xVel = -5;
                 }
 
-                if (colliding[0].rect.Y < rect.Y)
+                if (r.pos.yPos < NullEngine.Game.windowRect.Top)
                 {
-                    yVel = NullEngine.Game.rng.Next(0, 10);
+                    yVel = 5;
                 }
-            }
 
-            r.setRelativePos(xVel, yVel);
-
-            if(r.pos.xPos < NullEngine.Game.windowRect.Left)
-            {
-                xVel = 5;
-            }
-
-            if (r.pos.xPos > NullEngine.Game.windowRect.Right)
-            {
-                xVel = -5;
-            }
-
-            if (r.pos.yPos < NullEngine.Game.windowRect.Top)
-            {
-                yVel = 5;
-            }
-
-            if (r.pos.yPos > NullEngine.Game.windowRect.Bottom)
-            {
-                yVel = -5;
+                if (r.pos.yPos > NullEngine.Game.windowRect.Bottom)
+                {
+                    yVel = -5;
+                }
             }
         }
 
