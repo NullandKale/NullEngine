@@ -117,7 +117,7 @@ namespace NullGame.WorldGen
                     tempChunk.backgroundTiles[x, y] = new worldTile();
                     tempChunk.backgroundTiles[x, y].graphics.tAtlas = wData.tAtlas;
 
-                    double region0 = 0.25 * maxHeight;
+                    double region0 = 0.175 * maxHeight;
                     double region1 = 0.50 * maxHeight;
                     double region2 = 0.75 * maxHeight;
 

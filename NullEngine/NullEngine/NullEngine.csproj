@@ -116,7 +116,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <EmbeddedResource Include="OpenTK.dll.config" />
-    <EmbeddedResource Include="OpenTK.2.0.0.nupkg" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
