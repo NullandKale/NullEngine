@@ -34,5 +34,10 @@ namespace NullGame.Component
                 timer = 0;
             }
         }
+
+        public void OnDestroy(renderable r)
+        {
+            //DO NOTHING
+        }
     }
 }

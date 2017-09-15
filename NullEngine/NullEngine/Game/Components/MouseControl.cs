@@ -11,5 +11,10 @@ namespace NullGame.Component
             r.pos.xPos = Game.input.mousePos.X;
             r.pos.yPos = Game.input.mousePos.Y;
         }
+
+        public void OnDestroy(renderable r)
+        {
+            //DO NOTHING
+        }
     }
 }

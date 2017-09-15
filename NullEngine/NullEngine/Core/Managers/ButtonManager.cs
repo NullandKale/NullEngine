@@ -14,10 +14,10 @@ namespace NullEngine.Managers
         public ButtonManager()
         {
             //add update function to global update call list
-            Game.window.UpdateFrame += update;
+            Game.lateUpdate.Add(update);
         }
 
-        public void update(object sender, FrameEventArgs e)
+        public void update()
         {
             //get mouse state
             bool doLeft = Game.input.isClickedRising(MouseButton.Left);

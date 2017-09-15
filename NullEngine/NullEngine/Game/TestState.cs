@@ -13,8 +13,7 @@ namespace NullGame
         public Button decreaseCount;
         public Button numberOfColliders;
 
-        public int colliderCount = 1;
-        //public int maxColliderCount = 1000;
+        public int colliderCount = 800;
 
         public List<quad> colliders;
 
@@ -115,6 +114,7 @@ namespace NullGame
         {
             int last = colliders.Count - 1;
             updaters.Remove(colliders[last].update);
+            colliders[last].OnDestroy();
             colliders.RemoveAt(last);
         }
 

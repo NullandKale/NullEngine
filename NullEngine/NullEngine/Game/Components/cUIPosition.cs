@@ -26,6 +26,11 @@ namespace NullGame.Component
             lastPos = currentPos;
         }
 
+        public void OnDestroy(renderable r)
+        {
+            //DO NOTHING
+        }
+
         private Point GetPlayerPos()
         {
             return new Point((int)GameStateManager.man.gState.playerCharacter.pos.xPos / 64, (int)StateMachine.GameStateManager.man.gState.playerCharacter.pos.yPos / 64);

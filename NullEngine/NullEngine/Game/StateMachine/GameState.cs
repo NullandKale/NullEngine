@@ -55,7 +55,7 @@ namespace NullGame.StateMachine
 
             //initialize background entity
             background = new quad(Managers.WorldManager.worldTex, this);
-            background.AddComponent(new cBackgroundManger());
+            background.AddComponent(new cBackgroundManager());
 
             //initialize player character entity
             playerCharacter = new quad("Game/Content/roguelikeCharBeard_transparent.png", this);

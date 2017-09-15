@@ -43,6 +43,11 @@ namespace NullGame.Component
             }
         }
 
+        public void OnDestroy(renderable r)
+        {
+            //DO NOTHING
+        }
+
         public void Shoot(Point s, Point e)
         {
             isFired = true;

@@ -79,5 +79,10 @@ namespace NullGame.Component
                 r.pos.xPos += speed;
             }
         }
+
+        public void OnDestroy(renderable r)
+        {
+            //DO NOTHING
+        }
     }
 }

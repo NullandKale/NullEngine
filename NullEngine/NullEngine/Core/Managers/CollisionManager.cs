@@ -68,10 +68,13 @@ namespace NullEngine.Managers
         //remove the collider from the bounding box dict
         public static void removeCollider(Component.cCollider c)
         {
-            man.boundingBoxes[c.key].Remove(c);
-            if (man.boundingBoxes[c.key].Count <= 0)
+            if(man.boundingBoxes.ContainsKey(c.key))
             {
-                man.boundingBoxes.Remove(c.key);
+                man.boundingBoxes[c.key].Remove(c);
+                if (man.boundingBoxes[c.key].Count <= 0)
+                {
+                    man.boundingBoxes.Remove(c.key);
+                }
             }
         }
 
@@ -156,7 +159,7 @@ namespace NullEngine.Managers
                         for (int k = 0; k < box.Count; k++)
                         {
                             //~~ if the object collides with the calling object and it is not the calling object ~~
-                            if (c.collides(box[k]) && c != box[k] && c.parentState == box[k].parentState)
+                            if (c.collides(box[k]) && c != box[k] && c.parentState == box[k].parentState && c.rRef.active && box[k].rRef.active)
                             {
                                 //~~ add that object to the list to return
                                 temp.Add(box[k]);
@@ -195,7 +198,7 @@ namespace NullEngine.Managers
                         for (int k = 0; k < box.Count; k++)
                         {
                             //~~ if the object collides with the calling object and it is not the calling object ~~
-                            if (box[k].collides(rect, c) && c != box[k] && c.parentState == box[k].parentState)
+                            if (box[k].collides(rect, c) && c != box[k] && c.parentState == box[k].parentState && c.rRef.active && box[k].rRef.active)
                             {
                                 //~~ add that object to the list to return
                                 temp.Add(box[k]);

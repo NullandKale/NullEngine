@@ -46,5 +46,9 @@ namespace NullGame.Component
             Game.SetWindowCenterOffset(moveX, moveY);
         }
 
+        public void OnDestroy(renderable r)
+        {
+            //DO NOTHING
+        }
     }
 }

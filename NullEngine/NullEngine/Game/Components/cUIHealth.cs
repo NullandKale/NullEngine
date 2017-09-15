@@ -23,5 +23,11 @@ namespace NullGame.Component
             }
             lastFrameHealth = pcHealth.currentHealth;
         }
+
+        public void OnDestroy(renderable r)
+        {
+            //DO NOTHING
+        }
+
     }
 }

@@ -29,6 +29,14 @@ namespace NullEngine.Entity
             return new Rectangle((int)pos.xPos, (int)pos.yPos, getWidth(), getHeight());
         }
 
+        public void OnDestroy()
+        {
+            foreach (iComponent c in components)
+            {
+                c.OnDestroy(this);
+            }
+        }
+
         public void DistCulling()
         {
             if (doDistCulling)

@@ -36,5 +36,10 @@ namespace NullGame.Component
                 updaters[i].Invoke();
             }
         }
+
+        public void OnDestroy(renderable r)
+        {
+            //DO NOTHING
+        }
     }
 }

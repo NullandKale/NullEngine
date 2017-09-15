@@ -35,6 +35,11 @@ namespace NullGame.Component
             delayTimer--;
         }
 
+        public void OnDestroy(renderable r)
+        {
+            //DO NOTHING
+        }
+
         public void damage(int amount)
         {
             if(delayTimer <= 0)

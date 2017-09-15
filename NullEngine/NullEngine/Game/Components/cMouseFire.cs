@@ -47,5 +47,10 @@ namespace NullGame.Component
                 }
             }
         }
+
+        public void OnDestroy(renderable r)
+        {
+            //DO NOTHING
+        }
     }
 }

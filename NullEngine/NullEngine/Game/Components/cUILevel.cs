@@ -21,5 +21,10 @@ namespace NullGame.Component
             }
             lastFrameLevel = Managers.EnemyManager.man.level;
         }
+
+        public void OnDestroy(renderable r)
+        {
+            //DO NOTHING
+        }
     }
 }

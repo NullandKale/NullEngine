@@ -28,5 +28,10 @@ namespace NullGame.Component
             }
             lastFrameEnemiesLeft = Managers.EnemyManager.man.enemiesLeft;
         }
+
+        public void OnDestroy(renderable r)
+        {
+            //DO NOTHING
+        }
     }
 }

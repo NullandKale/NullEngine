@@ -26,6 +26,7 @@ namespace NullEngine
         public static StateMachine.iState currentState;
 
         public static List<Action> toUpdate;
+        public static List<Action> lateUpdate;
 
         private Matrix4 projMatrix;
 
@@ -63,6 +64,9 @@ namespace NullEngine
             //init global RNG
             rng = new Random();
 
+            toUpdate = new List<Action>();
+            lateUpdate = new List<Action>();
+
             Settings.Load("settings.ini");
 
             //create a window and set graphics mode
@@ -79,8 +83,6 @@ namespace NullEngine
             input = new InputManager();
             buttonMan = new ButtonManager();
             colMan = new CollisionManager(100);
-
-            toUpdate = new List<Action>();
 
             //initialize global textures
             font = new TextureAtlas("Game/Content/font.png", 16, 6, 8, 12, 0);
@@ -119,9 +121,13 @@ namespace NullEngine
             windowRect.Y = worldy;
             worldRect = new Rectangle(0, 0, worldMaxX, worldMaxY);
 
-            //invoke update function
+            //invoke update functions
+            foreach (Action up in toUpdate)
+            {
+                up.Invoke();
+            }
 
-            foreach(Action up in toUpdate)
+            foreach (Action up in lateUpdate)
             {
                 up.Invoke();
             }

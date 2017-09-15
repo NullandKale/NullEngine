@@ -1,15 +1,16 @@
 ﻿using NullEngine.Component;
 using NullEngine.Entity;
 using System.Drawing;
+using System;
 
 namespace NullGame.Component
 {
-    class cBackgroundManger : iComponent
+    class cBackgroundManager : iComponent
     {
         private Point displayedChunk;
         private bool lastInDungeon;
 
-        public cBackgroundManger()
+        public cBackgroundManager()
         {
             displayedChunk = Managers.WorldManager.man.currentChunkPos;
             lastInDungeon = Managers.WorldManager.man.currentChunk.inDungeon;
@@ -23,6 +24,11 @@ namespace NullGame.Component
                 displayedChunk = Managers.WorldManager.man.currentChunkPos;
                 lastInDungeon = Managers.WorldManager.man.currentChunk.inDungeon;
             }
+        }
+
+        public void OnDestroy(renderable r)
+        {
+            //DO NOTHING
         }
     }
 }

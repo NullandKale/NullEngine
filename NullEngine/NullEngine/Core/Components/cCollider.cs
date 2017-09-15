@@ -31,6 +31,11 @@ namespace NullEngine.Component
             component = false;
         }
 
+        ~cCollider()
+        {
+            Managers.CollisionManager.removeCollider(this);
+        }
+
         public virtual void Run(renderable r)
         {
             if(r.active && component)
@@ -42,6 +47,11 @@ namespace NullEngine.Component
                     Managers.CollisionManager.moveCollider(this);
                 }
             }
+        }
+
+        public void OnDestroy(renderable r)
+        {
+            Managers.CollisionManager.removeCollider(this);
         }
 
         public bool collides(cCollider c1)

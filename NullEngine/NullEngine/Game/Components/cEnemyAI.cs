@@ -57,6 +57,11 @@ namespace NullGame.Component
             }
         }
 
+        public void OnDestroy(renderable r)
+        {
+            //DO NOTHING
+        }
+
         Point moveTowardsTarget(Point p)
         {
             int moveX = 0;

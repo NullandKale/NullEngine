@@ -14,5 +14,10 @@ namespace NullGame.Component
                 Debug.Text("[" + r.pos.xPos + "," + r.pos.yPos + "]");
             }
         }
+
+        public void OnDestroy(renderable r)
+        {
+            //DO NOTHING
+        }
     }
 }
