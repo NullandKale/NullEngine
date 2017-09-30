@@ -15,6 +15,7 @@ namespace NullEngine
         public static int colorDepth = 32;
         public static int bitDepth = 8;
         public static int updateRate = 60;
+        public static string soundDevice = "default";
 
         /// <summary>
         /// Creates the settings file.
@@ -57,6 +58,9 @@ namespace NullEngine
                         case "UpdateRate":
                             updateRate = int.Parse(split[1]);
                             break;
+                        case "SoundDevice":
+                            soundDevice = split[1];
+                            break;
                     }
                 }
             }
@@ -86,7 +90,8 @@ namespace NullEngine
                 "YRes " + yRes.ToString(),
                 "ColorDepth " + colorDepth.ToString(),
                 "BitDepth " + bitDepth.ToString(),
-                "UpdateRate " + updateRate.ToString()
+                "UpdateRate " + updateRate.ToString(),
+                "SoundDevice " + soundDevice.ToString()
             };
             File.AppendAllLines(fileName, text.ToArray());
         }
