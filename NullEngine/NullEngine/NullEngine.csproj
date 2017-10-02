@@ -144,6 +144,7 @@
     <Content Include="Game\Content\roguelikeDungeon_transparent.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="OpenAL32.dll" />
     <EmbeddedResource Include="OpenTK.dll" />
     <EmbeddedResource Include="OpenTK.xml" />
   </ItemGroup>
