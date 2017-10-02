@@ -20,8 +20,6 @@ namespace NullGame.StateMachine
                 man = this;
             }
 
-            Debug.Text(OpenTK.Audio.OpenAL.Alc.GetString(IntPtr.Zero, OpenTK.Audio.OpenAL.AlcGetString.DefaultAllDevicesSpecifier));
-
             //create each state
             mState = new MenuState();
             pState = new PauseState();
