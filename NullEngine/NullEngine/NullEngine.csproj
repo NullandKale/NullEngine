@@ -33,6 +33,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ALSharp, Version=2.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\ALSharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="OpenTK">
       <HintPath>.\OpenTK.dll</HintPath>
       <Private>False</Private>
@@ -119,6 +124,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ALSharp.dll" />
     <Content Include="Game\Content\bullet.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
