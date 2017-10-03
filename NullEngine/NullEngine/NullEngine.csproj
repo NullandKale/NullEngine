@@ -61,6 +61,7 @@
     <Compile Include="Core\Extensions\FloatExtensions.cs" />
     <Compile Include="Core\Extensions\IntExtensions.cs" />
     <Compile Include="Core\Extensions\LongExtensions.cs" />
+    <Compile Include="Core\Managers\SoundManager.cs" />
     <Compile Include="Core\Settings.cs" />
     <Compile Include="Game\Components\cBackgroundManger.cs" />
     <Compile Include="Core\Components\cCollider.cs" />
