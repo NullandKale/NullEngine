@@ -233,6 +233,7 @@ namespace NullEngine.Managers
 
         }
 
+        //PLEASE FIX THIS!
         public static Bitmap BitmapFrom2DTileMap(worldTile[,] tiles)
         {
             Debug.Text("Generating 2D tileMap bitmap");
@@ -242,37 +243,73 @@ namespace NullEngine.Managers
             int yTileCount = tiles[0, 0].graphics.tAtlas.tileHeight;
             String filePath = tiles[0, 0].graphics.tAtlas.path;
 
+            int tilesLengthX = tiles.GetLength(0);
+            int tilesLengthY = tiles.GetLength(1);
+
             Debug.Text("Loading Tile Atlas");
             Bitmap atlas = new Bitmap(filePath);
 
             Debug.Text("Generating final bitmap");
-            Bitmap final = new Bitmap(tileSizeX * tiles.GetLength(0) + 1, tileSizeY * tiles.GetLength(1) + 1);
+            Bitmap final = new Bitmap(tileSizeX * tilesLengthX + 1, tileSizeY * tilesLengthY + 1);
+
+            Rectangle rect = new Rectangle(0, 0, final.Width, final.Height);
+            System.Drawing.Imaging.BitmapData bmpData = final.LockBits(rect, System.Drawing.Imaging.ImageLockMode.ReadWrite, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
 
             Debug.Text("Setting final bitmap pixels");
-            for (int x = 0; x < tiles.GetLength(0); x++)
+            System.Diagnostics.Stopwatch s = new System.Diagnostics.Stopwatch();
+            s.Start();
+
+            int bmpByteWidth = Math.Abs(bmpData.Stride);
+            int bytesCount = bmpByteWidth * final.Height;
+
+            byte[] colorBytes = new byte[bytesCount];
+
+            int currentByte = 0;
+
+            for (int y = 0; y < final.Height - 1; y++)
             {
-                for (int y = 0; y < tiles.GetLength(1); y++)
+                for (int x = 0; x < bmpByteWidth - 4; x++)
                 {
-                    int tilePosY = tiles[x, y].graphics.TexID / xTileCount;
-                    int tilePosX = tiles[x, y].graphics.TexID % xTileCount;
+                    int xTile = (x / 4) / tileSizeX;
+                    int yTile = y / tileSizeY;
 
-                    for (int k = 0; k < tileSizeY; k++)
+                    int tilePosY = tiles[xTile, yTile].graphics.TexID / xTileCount;
+                    int tilePosX = tiles[xTile, yTile].graphics.TexID % xTileCount;
+
+                    int XPixelPos = tilePosX * 16 + ((x / 4) % 16);
+                    int YPixelPos = tilePosY * 16 + (y % 16);
+
+                    switch (currentByte)
                     {
-                        for (int j = 0; j < tileSizeX; j++)
-                        {
-                            int xCord = (x * tileSizeX) + j;
-                            int yCord = (y * tileSizeY) + k;
+                        case 0:
+                            colorBytes[y * final.Height + x] = atlas.GetPixel(XPixelPos, YPixelPos).R;
+                            currentByte++;
+                            break;
 
-                            int tileCordX = ((tilePosX) * tileSizeX) + j;
-                            int tileCordY = ((tilePosY) * tileSizeY) + k;
+                        case 1:
+                            colorBytes[y * final.Height + x] = atlas.GetPixel(XPixelPos, YPixelPos).B;
+                            currentByte++;
+                            break;
 
-                            Color c = atlas.GetPixel(tileCordX, tileCordY);
+                        case 2:
+                            colorBytes[y * final.Height + x] = atlas.GetPixel(XPixelPos, YPixelPos).G;
+                            currentByte++;
+                            break;
 
-                            final.SetPixel(xCord, yCord, c);
-                        }
+                        case 3:
+                            colorBytes[y * final.Height + x] = atlas.GetPixel(XPixelPos, YPixelPos).A;
+                            currentByte = 0;
+                            break;
                     }
                 }
             }
+
+            IntPtr ptr = bmpData.Scan0;
+            System.Runtime.InteropServices.Marshal.Copy(colorBytes, 0, ptr, bytesCount);
+            final.UnlockBits(bmpData);
+            s.Stop();
+            
+            Debug.Text("This took: " + s.ElapsedMilliseconds + " ms");
             return final;
         }
 

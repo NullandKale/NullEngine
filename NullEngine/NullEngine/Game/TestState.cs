@@ -13,7 +13,7 @@ namespace NullGame
         public Button decreaseCount;
         public Button numberOfColliders;
 
-        public int colliderCount = 800;
+        public int colliderCount = 500;
 
         public List<quad> colliders;
 

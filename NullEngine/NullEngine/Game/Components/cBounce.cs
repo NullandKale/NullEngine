@@ -77,8 +77,8 @@ namespace NullGame.Components
 
         public void newVel()
         {
-            xVel = NullEngine.Game.rng.Next(-10, 10);
-            yVel = NullEngine.Game.rng.Next(-10, 10);
+            xVel = NullEngine.Game.rng.Next(-10, 11);
+            yVel = NullEngine.Game.rng.Next(-10, 11);
         }
     }
 }
