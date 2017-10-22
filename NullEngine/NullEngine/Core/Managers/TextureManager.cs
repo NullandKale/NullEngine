@@ -258,7 +258,7 @@ namespace NullEngine.Managers
             Debug.Text("Setting final bitmap pixels");
             System.Diagnostics.Stopwatch s = new System.Diagnostics.Stopwatch();
             s.Start();
-
+            
             int bmpByteWidth = Math.Abs(bmpData.Stride);
             int bytesCount = bmpByteWidth * final.Height;
 
@@ -266,10 +266,18 @@ namespace NullEngine.Managers
 
             int currentByte = 0;
 
-            // Debug.Text(final.Height + ", " + final.Width + ", " + bmpByteWidth + ", " + colorBytes.Length);
+            Debug.Text(final.Height + ", " + final.Width + ", " + bmpByteWidth + ", " + colorBytes.Length);
+
+            var lastX = -1;
+            var render = false;
+            var count = 0;
+            var coords = string.Empty;
 
             for (int y = 0; y < final.Height - 1; y++)
             {
+                count = 0;
+                render = true;
+                coords = "{ ";
                 for (int x = 0; x < bmpByteWidth - 4; x++)
                 {
                     int xTile = (x / 4) / tileSizeX;
@@ -280,6 +288,21 @@ namespace NullEngine.Managers
 
                     int XPixelPos = tilePosX * tileSizeX + ((x / 4) % tileSizeX);
                     int YPixelPos = tilePosY * tileSizeY + (y % tileSizeY);
+
+                    if (XPixelPos != lastX && render == true)
+                    {
+                        coords += "(" + XPixelPos + ", " + YPixelPos + "), ";
+                        lastX = XPixelPos;
+                        if (count >= 16)
+                        {
+                            count = 0;
+                            render = false;
+                        }
+                        else
+                        {
+                            count++;
+                        }
+                    }
 
                     switch (currentByte)
                     {
@@ -304,6 +327,9 @@ namespace NullEngine.Managers
                             break;
                     }
                 }
+                coords += "}";
+                Debug.Warning("Y: " + y);
+                Debug.Text(coords);
             }
 
             IntPtr ptr = bmpData.Scan0;

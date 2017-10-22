@@ -48,7 +48,7 @@ namespace NullGame.StateMachine
             //initialize list of entity updaters and the collision manager singleton
             updaters = new List<Action>();
             int seed = 5; //Game.rng.Next();
-            wMan = new Managers.WorldManager(seed, 10, 100, 10d, 64, Game.colMan, new Point(0,0), this);
+            wMan = new Managers.WorldManager(seed, 10, 10, 10d, 64, Game.colMan, new Point(0,0), this);
             Game.worldMaxX = wMan.worldMaxX;
             Game.worldMaxY = wMan.worldMaxY;
             LastWorldPos = new Point(Game.worldCenterX, Game.worldCenterY);
